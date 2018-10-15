@@ -1,0 +1,57 @@
+.userWidget {
+  max-width: 270px;
+  margin: auto;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  > div {
+    width: 95%;
+  }
+  header {
+    padding: .4rem;
+    .userMetaData {
+      overflow: hidden;
+      .typo2 {
+        font-size: .8rem;
+        color: transparentize(black, .3);
+      }
+    }
+    .typo1, .typo2 {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      text-indent: .2rem;
+      white-space: nowrap;
+    }
+
+  }
+  .smallButton {
+    min-width: unset;
+    min-height: unset;
+  }
+
+  .typo1, .typo2 {
+    text-align: left;
+    font-weight: bold;
+    color: transparentize(black, .3);
+  }
+  .typo2 {
+    text-indent: .5rem;
+  }
+  .pannelRoot {
+    width: 100%;
+  }
+  .userListItem {
+    padding: .4rem .2rem;
+    width: 100%;
+    .iconCol {
+      color: transparentize(black, .4);
+      font-size: .97rem;
+    }
+  }
+  .noWrapper {
+    flex-wrap: nowrap;
+  }
+}

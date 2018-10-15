@@ -1,0 +1,66 @@
+.productImagesSwiper {
+  overflow: hidden;
+  height: 100%;
+  max-height: 300px;
+  max-width: 100%;
+  position: relative;
+  .slidNavButton {
+    position: absolute;
+    z-index: 44;
+    background-color: #fff;
+  }
+  .next {
+    right: 0;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  .prev {
+    left: 0;
+    top: 50%;
+    transform: translate3d(50%, -50%, 0);
+  }
+  .swiper-container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+  }
+  .SlideItem {
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .imgWrapper {
+    height: 0;
+    width: 75%;
+    padding-top: 50%;
+    position: relative;
+  }
+  .swiper-pagination-bullets {
+    .swiper-pagination-bullet {
+      transition: all ease-out .5s;
+      transform: scale(1);
+      will-change: transform;
+      &.swiper-pagination-bullet-active {
+        transform: scale(1.5, 1.6);
+      }
+    }
+
+  }
+  .swipperWrapper {
+    position: relative;
+    height: 100%;
+  }
+
+  .swiper-lazy {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background: no-repeat center center;
+  }
+}

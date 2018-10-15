@@ -1,0 +1,65 @@
+@import "~react-id-swiper/src/styles/css/swiper.css";
+@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~react-perfect-scrollbar/dist/css/styles.min.css";
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.mr-atuo {
+  margin-right: auto;
+}
+
+/*----------------------------------
+  transtion group animations
+----------------------------------*/
+
+.fade-enter {
+  opacity: 1;
+}
+
+.fade-enter-active {
+  opacity: 1;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit-active {
+  opacity: 0.01;
+  transition: opacity 150ms ease-in;
+}
+
+.fading-enter {
+  opacity: .01;
+}
+
+.fading-enter-active {
+  opacity: 1;
+  transition: opacity 400ms ease-in;
+
+}
+
+.fading-exit {
+  opacity: 1;
+}
+
+.fading-exit-active {
+  opacity: 0.01;
+  transition: opacity 400ms ease-in;
+}
+
+.w-100 {
+  width: 100%;
+}
