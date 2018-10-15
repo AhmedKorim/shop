@@ -8,7 +8,6 @@ import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
 import './App.scss';
 import axios from "axios";
 
-import MasterFloatButton from "../Componenents/Layout/MasterFloatButton/MasterFloatButton";
 import {keyDownEvent, setDeviceType} from "../Store/ActionsTypes";
 import AdminDashboard from "./AdminArea/AdminDashboard";
 import ProductsWrapper from "./ProductsWrapper/ProductsWrapper";
@@ -80,7 +79,6 @@ class App extends Component {
                         />
                     </PerfectScrollbar>
                 </Main>
-                <MasterFloatButton/>
             </Fragment>
         )
     }

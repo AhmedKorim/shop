@@ -1,61 +1,60 @@
+import PropTypes from 'prop-types'
 import React from 'react';
-import Radar from 'react-d3-radar';
+import {Radar} from "react-chartjs-2";
 
 class RadarChart extends React.Component {
     render() {
+        const {
+            current,
+            statistics
+        } = this.props;
+
+        const data = (statistics || [{}]).reduce((acc, item) => ({...acc, [Object.keys(item)[0]]: Object.values(item)[0]}), {});
+        console.log(data);
         return (
-            <Radar
-                width={250}
-                height={250}
-                padding={10}
-                domainMax={10}
-                highlighted={null}
-                onHover={(point) => {
-                    if (point) {
-                        console.log('hovered over a data point');
-                    } else {
-                        console.log('not over anything');
+            <Radar data={{
+                labels: ["Weight",
+                    "Strength",
+                    "Adaptability",
+                    "Maximum Speed",
+                    "Stiffness",
+                    "Safety"],
+                datasets: [
+                    {
+                        label: "Average",
+                        data: [51, 35, 55, 12, 50, 15],
+                        backgroundColor: "rgba(66, 165, 245,.4)",
+                        borderColor: "rgba(240, 98, 146.5)"
+                    }, {
+                        label: current,
+                        data: [data.weight,
+                            data.strength,
+                            data.adaptability,
+                            data.maximumSpeed,
+                            data.stiffness,
+                            data.safety],
+                        backgroundColor: ["rgba(165, 214, 167,.6)",
+                            "rgb(0, 200, 83)",],
+                        borderColor: "rgba(0, 200, 83,.7)"
                     }
-                }}
-                data={{
-                    variables: [
-                        {key: 'weight', label: 'Weight'},
-                        {key: 'strength', label: 'Strength'},
-                        {key: 'adaptability', label: 'Adaptability'},
-                        {key: 'maximumSpeed', label: 'Maximum Speed'},
-                        {key: 'stiffness', label: 'Stiffness'},
-                        {key: 'safety', label: 'Safety'},
-                    ],
-                    sets: [
-                        {
-                            key: 'me',
-                            label: 'My Scores',
-                            values: {
-                                Weight: 8,
-                                strength: 8,
-                                adaptability: 8,
-                                maximumSpeed: 8,
-                                stiffness: 8,
-                                safety: 8,
-                            },
-                        },
-                        {
-                            key: 'avarage',
-                            label: 'Everyone',
-                            values: {
-                                Weight: 7,
-                                strength: 7,
-                                adaptability: 7,
-                                maximumSpeed: 7,
-                                stiffness: 7,
-                                safety: 7,
-                            },
-                        },
-                    ],
-                }}
+
+                ],
+                options: {
+                    title: {
+                        display: false
+                    }
+                },
+                borderWidth: 1
+            }}
+                   legend={{display: false}}
             />
         )
     }
 }
 
 export default RadarChart;
+
+RadarChart.propTypes = {
+    current: PropTypes.string,
+    statistics: PropTypes.object
+}

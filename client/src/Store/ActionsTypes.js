@@ -10,8 +10,6 @@ export const SET_DEVICE_TYPE = "SET_DEVICE_TYPE";
 export const BROWSER_BACK = "BROWSER_BACK";
 export const SET_MAIN_COLOR = "SET_MAIN_COLOR";
 
-export const UNIVERSAL_FAB = "UNIVERSAL_FAB";
-export const DESTORY_FAB = "DESTORY_FAB";
 
 export const GET_PRODCUTS_COUNT = "GET_PRODCUTS_COUNT";
 
@@ -65,16 +63,5 @@ export const browserBack = (e) => {
             }
             clearTimeout(timeOut)
         }, 100)
-    }
-}
-
-
-export const universalFab = (config) => {
-    return dispatch => {
-        if (config) {
-            dispatch({type: UNIVERSAL_FAB, payload: {...config, key: new Date().getTime()}})
-        } else {
-            dispatch({type: DESTORY_FAB})
-        }
     }
 }
