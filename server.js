@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
+const cors = require('cors');
 const product = require('./api/routes/product');
 
 
@@ -11,6 +11,7 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.urlencoded({useNewUrlParser: true, extended: false}));
 app.use(express.json());
+app.use(cors());
 
 // connecting to database
 mongoose.connect('mongodb://localhost:27017/cycle_shop', (err, db) => {
