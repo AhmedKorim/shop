@@ -2,11 +2,6 @@ import MenuItem from "@material-ui/core/MenuItem/MenuItem";
 import TextField from "@material-ui/core/TextField/TextField";
 import PropTypes from 'prop-types'
 import React, {Fragment} from 'react';
-import styled from 'styled-components';
-
-const StyledController = styled(TextField)`
-width: 100%;
-`
 
 class FromControl extends React.Component {
     getFromControl = ({
@@ -19,31 +14,37 @@ class FromControl extends React.Component {
                           options = [],
                           multiline = false,
                           changeHandler,
-
-
+                          other
                       }) => {
         switch (type) {
 
             case 'select':
-                return <StyledController
+                return <TextField
                     label={label}
                     select
+                    {...other}
                     onChange={(e) => changeHandler(e, name)}
                     name={name}
                     required={required}
+                    fullWidth
                     value={value || options[0]}
                 >
                     {options.map(option => <MenuItem key={option} value={option}>
                         {option}
                     </MenuItem>)}
-                </StyledController>
+                </TextField>
             default:
-                return <StyledController
+                return <TextField
                     label={label}
+                    {...other}
                     type={type || "text"}
                     onChange={(e) => changeHandler(e, name)}
                     value={value}
                     name={name}
+                    fullWidth
+                    inputProps={
+                        {className: "material__input-autoHeight"}
+                    }
                     required={required}
                 />
         }
@@ -54,13 +55,14 @@ class FromControl extends React.Component {
         const {
             props: {
                 payload,
-                changeHandler
+                changeHandler,
+                ...other
             }, getFromControl
         } = this;
 
         return (
             <Fragment>
-                {getFromControl({...payload, changeHandler: changeHandler})}
+                {getFromControl({...payload, changeHandler: changeHandler, other})}
             </Fragment>
         )
     }
@@ -79,5 +81,5 @@ FromControl.propTypes = {
         options: PropTypes.string,
         multiline: PropTypes.string,
     }).isRequired,
-    changeHandler: PropTypes.func.isRequired
+    changeHandler: PropTypes.func.isRequired,
 }

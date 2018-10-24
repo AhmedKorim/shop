@@ -13,6 +13,7 @@ import {keyDownEvent, setCurrentScroll, setDeviceType} from "../Store/ActionsTyp
 import {getAllProducts} from "../Store/ProdcutsActions";
 import AdminDashboard from "./AdminArea/AdminDashboard";
 import './App.scss';
+import Auth from "./Auth/Auth";
 import ProductsWrapper from "./ProductsWrapper/ProductsWrapper";
 
 const Main = styled.main`
@@ -44,7 +45,6 @@ class App extends Component {
         })
         this.mobilecheck();
     }
-
 
     render() {
         const {headerHeight, theme, mainColor, setCurrentScroll} = this.props;
@@ -78,6 +78,10 @@ class App extends Component {
                         <Route
                             path="/Admin_area"
                             component={AdminDashboard}
+                        />
+                        <Route
+                            path="/auth/:form"
+                            component={Auth}
                         />
                     </PerfectScrollbar>
                 </Main>

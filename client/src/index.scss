@@ -1,6 +1,7 @@
 @import "~react-id-swiper/src/styles/css/swiper.css";
 @import "~bootstrap/dist/css/bootstrap-grid.min.css";
 @import "~react-perfect-scrollbar/dist/css/styles.min.css";
+@import "~react-scrollbar/dist/css/scrollArea.css";
 
 body, html {
   margin: 0;
@@ -18,6 +19,15 @@ body, html {
 
 .mr-atuo {
   margin-right: auto;
+}
+
+.mx-auto {
+  margin: auto;
+  display: block;
+}
+
+.material__input-autoHeight {
+  height: auto !important;
 }
 
 /*----------------------------------

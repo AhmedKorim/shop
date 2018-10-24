@@ -67,7 +67,7 @@ export const browserBack = (e) => {
 }
 
 export const setCurrentScroll = scroll => dispatch => {
-    if (scroll) {
+    if (scroll || +scroll === 0) {
         if (!isNaN(+scroll)) {
             dispatch({
                 type: SET_CURRENT_SCROLL,

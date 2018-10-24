@@ -1,0 +1,16 @@
+
+.submit-button {
+  display: block !important;
+  margin: 1rem auto !important;
+}
+
+.auth-component {
+  .form-Wrapper {
+    position: relative;
+  }
+  .form-item {
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+  }
+}

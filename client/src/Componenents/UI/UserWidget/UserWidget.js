@@ -8,20 +8,11 @@ import ListItem from "@material-ui/core/ListItem/ListItem";
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Typography from "@material-ui/core/Typography/Typography";
 import React from 'react'
+import {withRouter} from "react-router-dom";
 import './UserWidget.scss';
 
 const UserWidget = props => {
-    const {
-
-        /* userIfo: {
-             name,
-             avatar,
-             anonymous,
-             gender,
-             email
-         },
-         loginout*/
-    } = props;
+    const {} = props;
 
     const HIText = true ? 'login now' : false === 'female' ? 'welcome MRS ' : 'welcome MR ' + "name";
     return (
@@ -55,12 +46,13 @@ const UserWidget = props => {
                                     <Grid item xs><Typography className="typo2">Admin Area</Typography></Grid>
                                 </Grid>
                             </ListItem>
-                            {true ? <ListItem component="li" button className="userListItem" onClick={void 0}>
+                            {true ? <ListItem component="li" button className="userListItem" onClick={() => props.history.push('/auth')}>
                                     <Grid container justify="center" alignItems="center">
                                         <Grid item xs={4}>
                                             <div><Icon className="iconCol">lock</Icon></div>
                                         </Grid>
-                                        <Grid item xs><Typography className="typo2"> Log In</Typography></Grid>
+                                        <Grid item xs><Typography className="typo2"
+                                        > Log In</Typography></Grid>
                                     </Grid>
                                     <Divider/>
                                 </ListItem> :
@@ -90,4 +82,5 @@ const mapDispatchToProps = dispatch => {
         logout: () => dispatch(logout())
     }
 };*/
-export default /*connect(mapStateToProps, mapDispatchToProps)(withRouter(*/UserWidget/*))*/;
+// export default /*connect(mapStateToProps, mapDispatchToProps)(withRouter(*/UserWidget/*))*/;
+export default withRouter(UserWidget);

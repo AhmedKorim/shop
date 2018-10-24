@@ -23,7 +23,7 @@ class ProductsWrapper extends React.Component {
         return (
             <Wrapper>
                 {
-                    products.map(product => <GridItem><CartItem product={product}/></GridItem>)
+                    products.map(product => <GridItem key={product._id}><CartItem product={product}/></GridItem>)
                 }
             </Wrapper>
 

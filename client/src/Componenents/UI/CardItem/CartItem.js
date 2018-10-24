@@ -1,6 +1,4 @@
 import Grid from "@material-ui/core/Grid/Grid";
-import Icon from "@material-ui/core/Icon/Icon";
-import IconButton from "@material-ui/core/IconButton/IconButton";
 import Paper from "@material-ui/core/Paper/Paper";
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Typography from "@material-ui/core/Typography/Typography";
@@ -9,6 +7,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import styled from 'styled-components';
 import {getSpringCoordinates} from "../../../Store/ActionsTypes";
+import AsyncIconButton from "../AsyncIconButton/AsyncIconButton";
 
 const Wrapper = styled.div`
   max-width:250px;
@@ -72,6 +71,13 @@ class CartItem extends Component {
         this.props.history.push('/products/' + id)
 
     };
+    addToFavorite = () => {
+
+    }
+    addToCart = () => {
+
+    }
+
 
     render() {
         const {
@@ -84,8 +90,11 @@ class CartItem extends Component {
                         image,
                     }
                 }
+
             },
             showProductDetails,
+            addToCart,
+            addToFavorite,
         } = this;
         return (
 
@@ -106,9 +115,22 @@ class CartItem extends Component {
                                 <Grid item xs={4} className="priceWrapper">
                                     {price}$
                                 </Grid>
-                                <Grid item className="margin-left">
-                                    <IconButton className="action-button" ><Icon>add_shopping_cart</Icon></IconButton>
-                                    <IconButton className="action-button"><Icon>favorite</Icon></IconButton>
+                                <Grid item xs container className="margin-left">
+                                    <AsyncIconButton
+                                        clickHandler={addToCart}
+                                        mainIcon="add_shopping_cart"
+                                        success={true}
+                                        successIcon="check"
+                                        loading={false}
+                                    />
+                                    <AsyncIconButton
+                                        clickHandler={addToFavorite}
+                                        mainIcon="favorite"
+                                        success={true}
+                                        successIcon="favorite"
+                                        loading={false}
+                                        successVariant={true}
+                                    />
                                 </Grid>
                             </Grid>
                         </Price>

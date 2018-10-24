@@ -1,6 +1,3 @@
-import Button from "@material-ui/core/Button/Button";
-import Icon from "@material-ui/core/Icon/Icon";
-import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import React from 'react';
 import {Motion, spring} from 'react-motion';
 import {withRouter} from "react-router-dom";
@@ -40,8 +37,9 @@ class SpringItem extends React.Component {
             }, 1000
         )
     }
+
     render() {
-        const confg = {stiffness: 500, damping: 40};
+        const confg = {stiffness: 600, damping: 30, precision: 1};
         const {
             startingX,
             startingY,

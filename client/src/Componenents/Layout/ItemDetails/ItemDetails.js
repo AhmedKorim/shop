@@ -227,7 +227,7 @@ class ItemDetails extends React.Component {
         const {animationStart, animationEnd} = this.animtionVla();
         const id = this.props.match.params.id;
         let activeProduct = this.props.products.find(({_id}) => _id === id);
-        if (!this.props.activeProduct && activeProduct) {
+        if (!this.props.activeProduct && !activeProduct) {
             this.props.setActiveProduct(id)
         }
         activeProduct = activeProduct || this.props.activeProduct;
