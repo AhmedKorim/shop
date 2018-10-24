@@ -3,12 +3,14 @@ import Avatar from "@material-ui/core/Avatar/Avatar";
 import Button from "@material-ui/core/Button/Button";
 import Fade from "@material-ui/core/Fade/Fade";
 import Icon from "@material-ui/core/Icon/Icon";
+import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Typography from "@material-ui/core/Typography/Typography";
 import Zoom from "@material-ui/core/Zoom/Zoom";
 import React, {Fragment} from 'react';
 import Hammer from "react-hammerjs";
 import {connect} from "react-redux";
 import styled from 'styled-components';
+import {setActiveProduct} from "../../../Store/ProdcutsActions";
 import ImgSwipper from "../../UI/ImgSwipper/ImgSwipper";
 import RadarChart from "../../UI/RadarChart/RadarChart";
 import Rating from "../../UI/Rating/Rating";
@@ -62,10 +64,10 @@ font-weight: bold;
 
 const ProductAvatar = styled.div`
   position: absolute;
- height: 6rem;
- width: 6rem;
+ height: 4rem;
+ width: 4rem;
  border-radius: 50%;
- top: -3rem;
+ top: -2rem;
  display:flex;
  justify-content: center;
  align-items: center;
@@ -75,11 +77,17 @@ const ProductAvatar = styled.div`
   width: 98%;
   height: 98%;
   text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-style: italic;
+  font-size:1.3rem;
   }
 `
 const ResImg = styled.div`
 padding: 1rem 0;
 text-align: center;
+margin: auto;
+max-width: ${props => props.maxWidth}px;
 img{
 max-width: 100%;
 }
@@ -103,6 +111,15 @@ max-width: 300px;
 margin: auto;
 `
 
+
+const SButton = styled(Button)`
+&&{position:fixed;
+top: 5rem;
+left: 10%;
+color: #000;
+z-index: 1234123;}
+`
+
 class ItemDetails extends React.Component {
     state = {
         showContent: false,
@@ -111,39 +128,6 @@ class ItemDetails extends React.Component {
         closed: false,
         live: true
     }
-
-    componentDidUpdate() {
-        const {keyDown} = this.props;
-        if (keyDown && !this.state.closing) {
-            if (keyDown.key === "Escape" && !keyDown.expired) {
-                this.close();
-            }
-        }
-    }
-
-    componentWillUpdate(nextProps) {
-        console.log(nextProps.location.pathname, this.props.location.pathname);
-        if (nextProps.location.pathname === this.props.location.pathname) {
-            if (!this.state.closing) return;
-            this.close();
-
-        }
-    }
-
-    componentDidMount() {
-        this.wrapper && this.wrapper.focus();
-
-    }
-
-    /*
-        componentDidMount() {
-            setTimeout(() => {
-                    this.setState({showContent: true})
-                }, 300
-            )
-        }
-    */
-
     wihtech = () => {
         if (!this.state.closing) {
             if (!this.state.white) this.setState({white: true});
@@ -155,7 +139,6 @@ class ItemDetails extends React.Component {
             }
         }
     }
-
     close = () => {
         // collapse all
         if (this.state.closing) return;
@@ -165,8 +148,6 @@ class ItemDetails extends React.Component {
             closing: true,
         })
     }
-
-
     animtionVla = () => {
         const strting = {
             x: this.props.coordinates.x,
@@ -193,8 +174,6 @@ class ItemDetails extends React.Component {
         }
 
     }
-
-
     handelSwipe = (e) => {
         console.log(e.velocityX);
         if (e.velocityX < -.3) {
@@ -203,6 +182,28 @@ class ItemDetails extends React.Component {
         }
     }
 
+    componentDidUpdate() {
+        const {keyDown} = this.props;
+        if (keyDown && !this.state.closing) {
+            if (keyDown.key === "Escape" && !keyDown.expired) {
+                this.close();
+            }
+        }
+    }
+
+    componentWillUpdate(nextProps) {
+        console.log(nextProps.location.pathname, this.props.location.pathname);
+        if (nextProps.location.pathname === this.props.location.pathname) {
+            if (!this.state.closing) return;
+            this.close();
+
+        }
+    }
+
+    componentDidMount() {
+        this.wrapper && this.wrapper.focus();
+
+    }
 
     render() {
         const {
@@ -216,139 +217,173 @@ class ItemDetails extends React.Component {
             },
             handelSwipe
         } = this;
-
         const {animationStart, animationEnd} = this.animtionVla();
+        const id = this.props.match.params.id;
+        let activeProduct = this.props.products.find(({_id}) => _id === id);
+        if (!this.props.activeProduct && activeProduct) {
+            this.props.setActiveProduct()
+        }
+        activeProduct = activeProduct || this.props.activeProduct;
+        if (activeProduct) {
+            var {
+                metaData: {
+                    name,
+                    image,
+                    brand,
+                    description
+                },
+                statistics,
+                slides
+            } = activeProduct;
+        }
+
         return (
-            <Wrapper wihtech={this.state.white}>
-                <Hammer
-                    onSwipe={handelSwipe}
-                    options={{
-                        recognizers: {
-                            swipe: {enable: true}
-                        }
-                    }}>
-                    <div>
-                        <SpringItem
-                            startingX={animationStart.x}
-                            startingY={animationStart.y}
-                            startingWidth={animationStart.width}
-                            startingHeight={animationStart.height}
-                            endingX={animationEnd.x}
-                            endingY={animationEnd.y}
-                            endingWidth={animationEnd.width}
-                            endingHeight={animationEnd.height}
-                            fire={this.wihtech}
-                            close={this.close}
-                        />
-                        <Fade in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} style={{transitionDelay: this.state.showContent ? 200 : 0}}>
-                            <Content shadows={theme.shadows}>
-                                <div className="container">
-                                    <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter UnmountOnExit
-                                          style={{transitionDelay: this.state.showContent ? 200 : 100}}>
-                                        <ProductAvatar>
-                                            <Avatar className="Avatar">Product Name</Avatar>
-                                        </ProductAvatar>
-                                    </Zoom>
-                                </div>
-                                <Fragment>
-                                    {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
-                                    <div className="container">
-                                        <RateWrapper>
-                                            <div>
-                                                <Rating rate={80}/>
-                                            </div>
-                                        </RateWrapper>
-                                    </div>
-                                    <div className="container">
-                                        <Row>
-                                            <div className="col-7">
-                                                <Typography variant="headline" component="h4" className="disription_header">
-                                                    Discription
-                                                </Typography>
-                                                <Typography>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi harum,
-                                                    molestiae
-                                                    nisi
-                                                    qui
-                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                </Typography>
-                                                <br/>
-                                                <Typography>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi harum,
-                                                    molestiae
-                                                    nisi
-                                                    quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                    harum,
-                                                    molestiae
-                                                    nisi
-                                                    qui
-                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                </Typography>
-                                            </div>
-                                            <div className="col">
-                                                <Datavisulization>
-                                                    <RadarChart/>
-                                                </Datavisulization>
-                                            </div>
-                                        </Row>
-                                    </div>
-                                    {/*</Collapse>*/}
-                                    <div className="container">
-                                        <SliderShow>
-                                            <ImgSwipper
-                                                imagesArray={[
-                                                    {imgOne: '//via.placeholder.com/1200'},
-                                                    {imgtwo: '//via.placeholder.com/1242'},
-                                                    {imgTr: '//via.placeholder.com/1245'},
-                                                    {imgFor: '//via.placeholder.com/1214'},
-                                                ]}
-                                            />
-                                        </SliderShow>
-                                        <div>
-                                            <Typography variant="headline" component="h4" className="disription_header">
-                                                Frame
-                                            </Typography>
-                                            <Typography>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi harum,
-                                                molestiae
-                                                nisi
-                                                qui
-                                                quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                            </Typography>
-                                            <ResImg>
-                                                <img src="//via.placeholder.com/600x300"/>
-                                            </ResImg>
+            <Fragment>
+                {
+                    !!activeProduct && <Wrapper wihtech={this.state.white}>
+                        <Hammer
+                            onSwipe={handelSwipe}
+                            options={{
+                                recognizers: {
+                                    swipe: {enable: true}
+                                }
+                            }}>
+                            <div>
+                                <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={400} mountOnEnter
+                                      style={{transitionDelay: this.state.showContent ? 100 : 100}}>
+                                    <Tooltip title="go back">
+                                        <SButton onClick={this.close}><Icon>keyboard_backspace</Icon></SButton>
+                                    </Tooltip>
+                                </Zoom>
+                                <SpringItem
+                                    startingX={animationStart.x}
+                                    startingY={animationStart.y}
+                                    startingWidth={animationStart.width}
+                                    startingHeight={animationStart.height}
+                                    endingX={animationEnd.x}
+                                    endingY={animationEnd.y}
+                                    endingWidth={animationEnd.width}
+                                    endingHeight={animationEnd.height}
+                                    fire={this.wihtech}
+                                    close={this.close}
+                                    image={`${window.location.origin}/${image}`}
+                                />
+                                <Fade in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300}
+                                      style={{transitionDelay: this.state.showContent ? 200 : 0}}>
+                                    <Content shadows={theme.shadows}>
+                                        <div className="container">
+                                            <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter
+                                                  style={{transitionDelay: this.state.showContent ? 200 : 100}}>
+                                                <ProductAvatar>
+                                                    <Avatar className="Avatar">{brand}</Avatar>
+                                                </ProductAvatar>
+                                            </Zoom>
                                         </div>
-                                    </div>
-                                </Fragment>
-                            </Content>
-                        </Fade>
-                        <FapWrapper>
-                            <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={500}
-                                  style={{transitionDelay: this.state.showContent ? 600 : 0}}>
-                                <Button variant="fab" color="primary">
-                                    <Icon>add_shopping_cart</Icon>
-                                </Button>
-                            </Zoom>
-                        </FapWrapper>
-                    </div>
-                </Hammer>
-            </Wrapper>
+                                        <Fragment>
+                                            {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
+                                            <div className="container">
+                                                <RateWrapper>
+                                                    <div>
+                                                        <Rating rate={80}/>
+                                                    </div>
+                                                </RateWrapper>
+                                            </div>
+                                            <div className="container">
+                                                <Row>
+                                                    <div className="col-7">
+                                                        <Typography variant="headline" component="h4" className="disription_header">
+                                                            Discription
+                                                        </Typography>
+                                                        <Typography>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                            harum,
+                                                            molestiae
+                                                            nisi
+                                                            qui
+                                                            quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                        </Typography>
+                                                        <br/>
+                                                        <Typography>
+                                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                            harum,
+                                                            molestiae
+                                                            nisi
+                                                            quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta
+                                                            excepturi
+                                                            harum,
+                                                            molestiae
+                                                            nisi
+                                                            qui
+                                                            quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                        </Typography>
+                                                    </div>
+                                                    <div className="col">
+                                                        <Datavisulization>
+                                                            <RadarChart current={name} statistics={statistics}/>
+                                                        </Datavisulization>
+                                                    </div>
+                                                </Row>
+                                            </div>
+                                            {/*</Collapse>*/}
+                                            <div className="container">
+                                                <SliderShow>
+                                                    <ImgSwipper
+                                                        imagesArray={slides.map(slide => ({[slide]: `${window.location.origin}/${slide}`})
+                                                        )}
+                                                    />
+                                                </SliderShow>
+                                                <div>
+                                                    <Typography variant="headline" component="h4" className="disription_header">
+                                                        Frame
+                                                    </Typography>
+                                                    <Typography>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                        harum,
+                                                        molestiae
+                                                        nisi
+                                                        qui
+                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                    </Typography>
+                                                    <ResImg maxWidth={500}>
+                                                        <img src="http://www.delta7bikes.com/images/D7_Frame.jpg"/>
+                                                    </ResImg>
+                                                </div>
+                                            </div>
+                                        </Fragment>
+                                    </Content>
+                                </Fade>
+                                <FapWrapper>
+                                    <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={500}
+                                          style={{transitionDelay: this.state.showContent ? 600 : 0}}>
+                                        <Button variant="fab" color="primary">
+                                            <Icon>add_shopping_cart</Icon>
+                                        </Button>
+                                    </Zoom>
+                                </FapWrapper>
+                            </div>
+                        </Hammer>
+                    </Wrapper>
+
+                }
+            </Fragment>
         )
     }
 }
 
-const
-    mapStateToProps = state => {
-        return {
-            coordinates: state.animations.spring,
-            headerHeight: state.animations.header.height,
-            keyDown: state.events.keyDown
-
-        }
+const mapStateToProps = state => {
+    return {
+        coordinates: state.animations.spring,
+        headerHeight: state.animations.header.height,
+        keyDown: state.events.keyDown,
+        activeProduct: state.products.activeProduct,
+        products: state.products.products
     }
+}
+const dispatchToPorps = dispatch => ({
+    setActiveProduct: id => dispatch(setActiveProduct(id))
 
-export default connect(mapStateToProps)(withTheme()(ItemDetails));
+})
+export default connect(mapStateToProps, dispatchToPorps)(withTheme()(ItemDetails));
 
 
     

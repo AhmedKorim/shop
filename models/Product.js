@@ -12,14 +12,13 @@ const ItemSchema = new Schema({
         brand: {type: String, required: true}
     },
     statistics: {
-        type: Object, default: {
-            weight: 0,
-            strength: 0,
-            adaptability: 0,
-            maximumSpeed: 0,
-            stiffness: 0,
-            safety: 0,
-        }
+        weight: {type: Number, default: 0},
+        strength: {type: Number, default: 0},
+        adaptability: {type: Number, default: 0},
+        maximumSpeed: {type: Number, default: 0},
+        stiffness: {type: Number, default: 0},
+        safety: {type: Number, default: 0},
+
     },
     slides: {type: Array, default: []},
     rate: {type: Number, default: null},

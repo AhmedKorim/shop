@@ -1,9 +1,9 @@
 import Button from "@material-ui/core/Button/Button";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
+import axios from 'axios';
 import React from 'react';
 import styled from 'styled-components';
-import {axiosBase} from "../../../Shared/axios";
 import {reader} from "../../../Shared/FileReader";
 import FilerUploader from "../../UI/FormControl/FilerUploader";
 import FromControl from "../../UI/FormControl/FormControl";
@@ -29,6 +29,8 @@ height: 5rem;
 transition: all .5s ease;
 `
 
+
+// TODO enhance data structure
 class ProductEditor extends React.Component {
     state = {
         controllers: {
@@ -75,18 +77,18 @@ class ProductEditor extends React.Component {
             if (controllersGroup === 'metaData') {
                 metaData = controllers[controllersGroup].map(controller => {
                     if (controller.type === 'file') {
-                        productData.append('product-image', controller.value, 'test');
+                        productData.append('product-image', controller.value, controller.value.name);
                     } else {
-                        const {value, name, ...shit} = controller;
+                        const {value, name, ...ignored} = controller;
                         return {[name]: value}
                     }
-                }).filter(i => typeof i !== 'undefined').reduce((acc,i) => ({...acc, ...i}) ,{})
+                }).filter(i => typeof i !== 'undefined').reduce((acc, i) => ({...acc, ...i}), {})
             } else if (controllersGroup === 'slides') {
                 controllers[controllersGroup].forEach(({file}) => {
-                    productData.append('slides', file, 'test-slide')
+                    productData.append('slides', file, file.name)
                 })
             } else if (controllersGroup === 'statistics') {
-                statistics = controllers[controllersGroup].map(i => ({[i.name]: i.value}))
+                statistics = controllers[controllersGroup].map(i => ({[i.name]: i.value})).reduce((acc, i) => ({...acc, ...i}), {})
             }
         }
         // adding statistics to form data
@@ -99,7 +101,7 @@ class ProductEditor extends React.Component {
     }
     sendData = (e) => {
         e.preventDefault();
-        axiosBase.post("/api/products", this.buildProductData(), {
+        axios.post("/api/products", this.buildProductData(), {
             headers: {
                 "Content-Type": "multipart/form-data"
             }

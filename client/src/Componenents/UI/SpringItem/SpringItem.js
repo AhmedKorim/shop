@@ -21,12 +21,7 @@ height:${props => {
 }}px;
 
 `;
-const SButton = styled(Button)`
-position:relative;
-top: 1rem;
-left:15%;
-color: #000;
-`
+
 
 class SpringItem extends React.Component {
     state = {
@@ -45,12 +40,6 @@ class SpringItem extends React.Component {
             }, 1000
         )
     }
-
-    goBack = () => {
-        this.props.close();
-    }
-
-
     render() {
         const confg = {stiffness: 500, damping: 40};
         const {
@@ -63,7 +52,6 @@ class SpringItem extends React.Component {
             endingWidth,
             endingHeight,
         } = this.props;
-        const {goBack} = this;
         return (
             <Motion
                 defaultStyle={
@@ -89,11 +77,8 @@ class SpringItem extends React.Component {
                             width={style.width}
                             height={style.height}
                             fire={this.fire}
-                            img="http://www.bikesdirect.com/products/motobecane/images/elite_sport_silver_2100.jpg"
+                            img={this.props.image}
                         >
-                            <Tooltip title="go back">
-                                <SButton onClick={goBack}><Icon>keyboard_backspace</Icon></SButton>
-                            </Tooltip>
                         </Cover>
                     )
                 }

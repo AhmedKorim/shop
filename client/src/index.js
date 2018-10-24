@@ -12,6 +12,7 @@ import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 import AnimationReducer from "./Store/AnimationReducer";
 import EventReducer from "./Store/EventReducer";
+import productsReducer from "./Store/ProductsReducer";
 import themeReducer from "./Store/ThemeReducer";
 
 
@@ -21,7 +22,8 @@ const store = createStore(
     combineReducers({
         animations: AnimationReducer,
         events: EventReducer,
-        theme: themeReducer
+        theme: themeReducer,
+        products: productsReducer,
     }),
     composeEnhancers(applyMiddleware(thunk))
 );

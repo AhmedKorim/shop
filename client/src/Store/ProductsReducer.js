@@ -1,16 +1,25 @@
+import {GET_ALL_PRODUCTS, SET_ACTIVE_PRODUCT} from "./ActionsTypes";
+
 const initialState = {
-        products: [],
-        productsCount: null
-    };
+    products: [],
+    activeProduct: null
+};
 
 const productsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_PRODCUTS_COUNT:
-            return {}
-        default :
+        case GET_ALL_PRODUCTS:
             return {
-                ...state
-            }
+                ...state,
+                products: action.payload.products
+            };
+        case SET_ACTIVE_PRODUCT:
+            return {
+                ...state,
+                activeProduct: action.payload.activeProduct
+            };
+
+        default :
+            return state
     }
 
 }

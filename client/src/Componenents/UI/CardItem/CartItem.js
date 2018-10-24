@@ -4,7 +4,6 @@ import IconButton from "@material-ui/core/IconButton/IconButton";
 import Paper from "@material-ui/core/Paper/Paper";
 import Typography from "@material-ui/core/Typography/Typography";
 import React, {Component} from 'react'
-import Hammer from "react-hammerjs";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import styled from 'styled-components';
@@ -55,7 +54,8 @@ const Price = styled.div`
 `;
 
 class CartItem extends Component {
-    printLocation = (e) => {
+
+    showProductDetails = (e, id) => {
         const x = this.wrapper.offsetLeft;
         const y = this.wrapper.offsetTop;
         const width = this.wrapper.offsetWidth;
@@ -67,49 +67,58 @@ class CartItem extends Component {
             width: this.wrapper.offsetWidth / 2,
             height: this.wrapper.offsetHeight / 2
         })
-        this.props.history.push('/products/details')
+        this.props.history.push('/products/' + id)
 
     };
 
     render() {
         const {
-            props: {},
-            printLocation,
+            props: {
+                product: {
+                    _id,
+                    metaData: {
+                        name,
+                        price,
+                        image,
+                    }
+                }
+            },
+            showProductDetails,
         } = this;
         return (
 
-                <div>
-                    <Wrapper onClick={printLocation} innerRef={node => this.wrapper = node}>
-                        <Paper elevation={1}>
-                            <Image source="http://www.bikesdirect.com/products/motobecane/images/elite_sport_silver_2100.jpg">
-                                <div></div>
-                            </Image>
-                            <Body>
-                            <TextWrapper>
-                                product name
-                            </TextWrapper>
-                            <Price>
-                                <Grid container alignItems="center">
-                                    <Grid item xs={4} className="priceWrapper">
-                                        100$
-                                    </Grid>
-                                    <Grid item className="margin-left">
-                                        <IconButton className="action-button" color="primary"><Icon>add_shopping_cart</Icon></IconButton>
-                                        <IconButton className="action-button"><Icon>favorite</Icon></IconButton>
-                                    </Grid>
+            <div>
+                <Wrapper onClick={(e) => showProductDetails(e, _id)} innerRef={node => this.wrapper = node}>
+                    <Paper elevation={1}>
+                        <Image source={`${window.location.origin}/${image}`}>
+                            <div></div>
+                        </Image>
+                        <Body>
+                        <TextWrapper>
+                            {name}
+                        </TextWrapper>
+                        <Price>
+                            <Grid container alignItems="center">
+                                <Grid item xs={4} className="priceWrapper">
+                                    {price}$
                                 </Grid>
-                            </Price>
-                            </Body>
-                        </Paper>
-                    </Wrapper>
-                </div>
+                                <Grid item className="margin-left">
+                                    <IconButton className="action-button" color="primary"><Icon>add_shopping_cart</Icon></IconButton>
+                                    <IconButton className="action-button"><Icon>favorite</Icon></IconButton>
+                                </Grid>
+                            </Grid>
+                        </Price>
+                        </Body>
+                    </Paper>
+                </Wrapper>
+            </div>
         )
     }
 }
 
 const mapDispatchToPros = dispatch => {
     return {
-        updatedSpringCoordinates: (coordinates) => dispatch(getSpringCoordinates(coordinates))
+        updatedSpringCoordinates: (coordinates) => dispatch(getSpringCoordinates(coordinates)),
     }
 }
 

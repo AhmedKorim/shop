@@ -12,8 +12,8 @@ export const SET_MAIN_COLOR = "SET_MAIN_COLOR";
 
 
 export const GET_PRODCUTS_COUNT = "GET_PRODCUTS_COUNT";
-
-
+export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
+export const SET_ACTIVE_PRODUCT = 'SET_ACTIVE_PRODUCT';
 
 export const getSpringCoordinates = (coordinates) => {
     return dispatch => {

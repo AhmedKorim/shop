@@ -1,18 +1,19 @@
+import {withTheme} from '@material-ui/core'
+import axios from "axios";
 import React, {Component, Fragment} from 'react';
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import {connect} from "react-redux";
-import {Redirect, Route, withRouter, Switch} from "react-router-dom";
+import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import styled from "styled-components";
 import ItemDetails from "../Componenents/Layout/ItemDetails/ItemDetails";
 import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
-import './App.scss';
-import axios from "axios";
 
 import {keyDownEvent, setDeviceType} from "../Store/ActionsTypes";
+import {getAllProducts} from "../Store/ProdcutsActions";
 import AdminDashboard from "./AdminArea/AdminDashboard";
+import './App.scss';
 import ProductsWrapper from "./ProductsWrapper/ProductsWrapper";
-import {withTheme} from '@material-ui/core'
-import PerfectScrollbar from 'react-perfect-scrollbar'
 
 const Main = styled.main`
 position:relative;
@@ -35,6 +36,7 @@ class App extends Component {
 
 
     componentDidMount() {
+        this.props.getAllProducts();
         const dispatchEvent = this.props.fireKey;
         axios.get('http://home.test/ajax/server/rest.php?bicycle=all').then(resp => console.log(resp.data))
         window && window.addEventListener('keydown', function (e) {
@@ -93,7 +95,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         fireKey: (e) => dispatch(keyDownEvent(e)),
-        setDeviceType: (isMobile) => dispatch(setDeviceType(isMobile))
+        setDeviceType: (isMobile) => dispatch(setDeviceType(isMobile)),
+        getAllProducts: _ => dispatch(getAllProducts())
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App)));

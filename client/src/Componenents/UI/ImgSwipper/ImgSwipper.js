@@ -101,10 +101,7 @@ class ImgSwipper extends Component {
     render() {
         const {
             props: {
-
                 imagesArray
-
-
             },
             mainSwiperNav
         } = this;

@@ -1,4 +1,5 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import styled from 'styled-components';
 import CartItem from "../../Componenents/UI/CardItem/CartItem";
 
@@ -15,12 +16,14 @@ padding: .3rem;
 `
 
 class ProductsWrapper extends React.Component {
-    render() {
-        return (
 
+
+    render() {
+        const {products} = this.props;
+        return (
             <Wrapper>
                 {
-                    [1, 2, 3, 4, 5, 6, 7, 8].map(i => <GridItem><CartItem/></GridItem>)
+                    products.map(product => <GridItem><CartItem product={product}/></GridItem>)
                 }
             </Wrapper>
 
@@ -28,4 +31,7 @@ class ProductsWrapper extends React.Component {
     }
 }
 
-export default ProductsWrapper;
+const mapStateToProps = state => ({
+    products: state.products.products
+})
+export default connect(mapStateToProps)(ProductsWrapper);
