@@ -2,12 +2,12 @@ import Button from "@material-ui/core/Button/Button";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 import React from 'react';
+import styled from 'styled-components';
 import {axiosBase} from "../../../Shared/axios";
 import {reader} from "../../../Shared/FileReader";
 import FilerUploader from "../../UI/FormControl/FilerUploader";
 import FromControl from "../../UI/FormControl/FormControl";
 import RadarChart from "../../UI/RadarChart/RadarChart";
-import styled from 'styled-components';
 
 const InputGrid = styled(Grid)`
 box-sizing: border-box;
@@ -39,7 +39,6 @@ class ProductEditor extends React.Component {
                 {label: "Brand", type: "text", value: "", name: "brand"},
                 {label: "Available", type: "text", value: "", name: "available"},
                 {label: "Product description", type: "text", value: "", name: "product_description", multiline: true},
-
             ],
             statistics: [
                 {label: "weight", name: "weight", value: "55", type: "text",},
@@ -82,18 +81,19 @@ class ProductEditor extends React.Component {
                        }
                    });
            }*/
-        let dataToSend = {};
+        const productData = new FormData();
+        let metaData;
         for (const controllerGroup in this.state.controllers) {
             if (controllerGroup !== "slides") {
-                dataToSend = {
-                    ...dataToSend, [controllerGroup]: this.state.controllers[controllerGroup].map(controller => {
-                        if (controller.type !== 'file') {
-                            return {[controller.name]: controller.value}
-                        } else {
-                            return new FormData("image", controller.value);
-                        }
-                    })
-                }
+                // metaData = {
+                //     ...metaData, [controllerGroup]: this.state.controllers[controllerGroup].map(controller => {
+                //         if (controller.type !== 'file') {
+                //             return {[controller.name]: controller.value}
+                //         } else {
+                //             return new FormData("image", controller.value);
+                //         }
+                //     })
+                // }
             } else {
                 const fd = new FormData();
                 for (const file of this.state.controllers[controllerGroup]) {
@@ -112,7 +112,11 @@ class ProductEditor extends React.Component {
     }
     sendData = (e) => {
         e.preventDefault();
-        axiosBase.post("/api/products", this.buildProductData())
+        axiosBase.post("/api/products", this.buildProductData(), {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        })
             .then(res => console.log(res))
             .catch(err => console.log(err))
     }

@@ -1,7 +1,24 @@
 const express = require('express');
 const Product = require('../../models/Product');
-
+const multer = require('multer');
 const router = express.Router();
+const path = require('path');
+
+const storage = multer.diskStorage({
+    destination: './public/uploads',
+    filename: (req, file, cb) => {
+        fileName = file.fieldname + '-' + Date.now() + path.extname(file.originalname);
+        cb(null, fileName);
+    }
+})
+
+// upload
+const upload = multer({
+    storage,
+    // limits, -> {maxSize:}
+    // filefilter -> funcion  (req,file,cb) -> callback -> : (err,boolean)
+})
+
 
 //get all products
 router.get('/', (req, res, next) => {
@@ -20,8 +37,13 @@ router.get('/', (req, res, next) => {
         })
 })
 
-router.post("/", (req, res, next) => {
+router.post("/", upload.fields([{name: 'image', maxCount: 1}, {name: 'slide', maxCount: 10}]), (req, res, next) => {
+
+
+
     console.log(req.body);
+
+
     // const newPorduct = new Product({
     //     name: req.body.name,
     //     image: req.body.image,
