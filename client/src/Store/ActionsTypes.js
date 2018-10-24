@@ -5,7 +5,7 @@ export const KEY_DOWN_EVENT = "KEY_DOWN_EVENT";
 
 export const SET_HEADER_COLOR = "SET_HEADER_COLOR";
 export const SET_DEVICE_TYPE = "SET_DEVICE_TYPE";
-
+export const SET_CURRENT_SCROLL = "SET_CURRENT_SCROLL";
 
 export const BROWSER_BACK = "BROWSER_BACK";
 export const SET_MAIN_COLOR = "SET_MAIN_COLOR";
@@ -63,5 +63,18 @@ export const browserBack = (e) => {
             }
             clearTimeout(timeOut)
         }, 100)
+    }
+}
+
+export const setCurrentScroll = scroll => dispatch => {
+    if (scroll) {
+        if (!isNaN(+scroll)) {
+            dispatch({
+                type: SET_CURRENT_SCROLL,
+                payload: {
+                    scroll
+                }
+            })
+        }
     }
 }

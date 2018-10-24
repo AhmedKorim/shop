@@ -17,11 +17,11 @@ export const getAllProducts = _ => dispatch => {
         })
 }
 
-export const setActiveProduct = activeProduct => (dispatch) => {
+export const setActiveProduct = id => (dispatch) => {
     dispatch({
         type: SET_ACTIVE_PRODUCT,
         payload: {
-            activeProduct
+            activeProduct: id
         }
     })
 }

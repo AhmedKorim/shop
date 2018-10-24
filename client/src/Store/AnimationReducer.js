@@ -1,4 +1,4 @@
-import {GET_SPRING_COORDINATES, HEADER_CONFIG, SET_HEADER_COLOR, SET_MAIN_COLOR} from "./ActionsTypes";
+import {GET_SPRING_COORDINATES, HEADER_CONFIG, SET_CURRENT_SCROLL, SET_HEADER_COLOR, SET_MAIN_COLOR} from "./ActionsTypes";
 
 const initialState = {
     spring: {
@@ -13,7 +13,8 @@ const initialState = {
     },
     main: {
         color: null
-    }
+    },
+    scroll: null
 };
 
 const AnimationReducer = (state = initialState, action) => {
@@ -48,6 +49,11 @@ const AnimationReducer = (state = initialState, action) => {
                     ...state.main,
                     color: action.payload.color
                 }
+            }
+        case SET_CURRENT_SCROLL:
+            return {
+                ...state,
+                scroll: action.payload.scroll
             }
         default:
             return {

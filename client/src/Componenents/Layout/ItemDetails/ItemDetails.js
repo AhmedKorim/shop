@@ -20,7 +20,7 @@ import SpringItem from "../../UI/SpringItem/SpringItem"
 const Wrapper = styled.section`
 box-sizing: border-box;
 position: absolute;
-top: 0;
+top: ${({scroll}) => scroll}px;
 left: 0;
 width: 100%;
 z-index: 89;
@@ -151,13 +151,13 @@ class ItemDetails extends React.Component {
     animtionVla = () => {
         const strting = {
             x: this.props.coordinates.x,
-            y: this.props.coordinates.y,
+            y: this.props.coordinates.y - this.props.scroll,
             width: this.props.coordinates.width,
             height: this.props.coordinates.height,
         }
         const ending = {
             x: 0,
-            y: this.props.headerHeight || 64,
+            y: (this.props.headerHeight || 64),
             width: window.innerWidth,
             height: 400,
         }
@@ -205,23 +205,30 @@ class ItemDetails extends React.Component {
 
     }
 
+    componentWillUnmount() {
+        this.props.setActiveProduct(null)
+    }
+
     render() {
         const {
             props: {
                 coordinates,
                 theme,
-                headerHeight
+                headerHeight,
+                scroll
             },
             state: {
                 closing
             },
             handelSwipe
         } = this;
+
+
         const {animationStart, animationEnd} = this.animtionVla();
         const id = this.props.match.params.id;
         let activeProduct = this.props.products.find(({_id}) => _id === id);
         if (!this.props.activeProduct && activeProduct) {
-            this.props.setActiveProduct()
+            this.props.setActiveProduct(id)
         }
         activeProduct = activeProduct || this.props.activeProduct;
         if (activeProduct) {
@@ -240,7 +247,7 @@ class ItemDetails extends React.Component {
         return (
             <Fragment>
                 {
-                    !!activeProduct && <Wrapper wihtech={this.state.white}>
+                    !!activeProduct && <Wrapper wihtech={this.state.white} scroll={scroll}>
                         <Hammer
                             onSwipe={handelSwipe}
                             options={{
@@ -332,22 +339,6 @@ class ItemDetails extends React.Component {
                                                         )}
                                                     />
                                                 </SliderShow>
-                                                <div>
-                                                    <Typography variant="headline" component="h4" className="disription_header">
-                                                        Frame
-                                                    </Typography>
-                                                    <Typography>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                        harum,
-                                                        molestiae
-                                                        nisi
-                                                        qui
-                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                    </Typography>
-                                                    <ResImg maxWidth={500}>
-                                                        <img src="http://www.delta7bikes.com/images/D7_Frame.jpg"/>
-                                                    </ResImg>
-                                                </div>
                                             </div>
                                         </Fragment>
                                     </Content>
@@ -376,7 +367,8 @@ const mapStateToProps = state => {
         headerHeight: state.animations.header.height,
         keyDown: state.events.keyDown,
         activeProduct: state.products.activeProduct,
-        products: state.products.products
+        products: state.products.products,
+        scroll: state.animations.scroll
     }
 }
 const dispatchToPorps = dispatch => ({

@@ -18,11 +18,6 @@ background-color:${({theme,headerColor}) => headerColor || theme.palette.primary
 box-shadow: ${({theme: {shadows}}) => shadows[3]} !important;
 
 `
-const MultiPurposeIconButton = styled(IconButton)`
-position:absolute !important;
-left: 20px;
-z-index: 454;
-`;
 
 class MainHeader extends React.Component {
     updataHeader = () => {
@@ -42,9 +37,6 @@ class MainHeader extends React.Component {
             <header ref={node => this.$header = node}>
                 <AppHeader component="div" position="relative" theme={this.props.theme} headerColor={this.props.headerColor}>
                     <Toolbar>
-                        <MultiPurposeIconButton color="inherit">
-                            <Icon>menu</Icon>
-                        </MultiPurposeIconButton>
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8">

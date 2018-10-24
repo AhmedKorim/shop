@@ -9,7 +9,7 @@ import styled from "styled-components";
 import ItemDetails from "../Componenents/Layout/ItemDetails/ItemDetails";
 import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
 
-import {keyDownEvent, setDeviceType} from "../Store/ActionsTypes";
+import {keyDownEvent, setCurrentScroll, setDeviceType} from "../Store/ActionsTypes";
 import {getAllProducts} from "../Store/ProdcutsActions";
 import AdminDashboard from "./AdminArea/AdminDashboard";
 import './App.scss';
@@ -47,13 +47,13 @@ class App extends Component {
 
 
     render() {
-        const {headerHeight, theme, mainColor} = this.props;
+        const {headerHeight, theme, mainColor, setCurrentScroll} = this.props;
         console.log(theme);
         return (
             <Fragment>
                 <MainHeader/>
                 <Main headerHeight={headerHeight || 64} theme={theme} mainColor={mainColor}>
-                    <PerfectScrollbar>
+                    <PerfectScrollbar onScrollY={container => container && setCurrentScroll(container.scrollTop)}>
                         <Route
                             path="/"
                             exact
@@ -96,7 +96,8 @@ const mapDispatchToProps = dispatch => {
     return {
         fireKey: (e) => dispatch(keyDownEvent(e)),
         setDeviceType: (isMobile) => dispatch(setDeviceType(isMobile)),
-        getAllProducts: _ => dispatch(getAllProducts())
+        getAllProducts: _ => dispatch(getAllProducts()),
+        setCurrentScroll: scroll => dispatch(setCurrentScroll(scroll))
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App)));

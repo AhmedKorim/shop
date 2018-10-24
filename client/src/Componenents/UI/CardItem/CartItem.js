@@ -2,6 +2,7 @@ import Grid from "@material-ui/core/Grid/Grid";
 import Icon from "@material-ui/core/Icon/Icon";
 import IconButton from "@material-ui/core/IconButton/IconButton";
 import Paper from "@material-ui/core/Paper/Paper";
+import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Typography from "@material-ui/core/Typography/Typography";
 import React, {Component} from 'react'
 import {connect} from "react-redux";
@@ -14,6 +15,7 @@ const Wrapper = styled.div`
   min-width: 200px;
 `;
 const Image = styled.div`
+    cursor:pointer;
   padding-top: 79%;
   position: relative;
   div{
@@ -88,11 +90,13 @@ class CartItem extends Component {
         return (
 
             <div>
-                <Wrapper onClick={(e) => showProductDetails(e, _id)} innerRef={node => this.wrapper = node}>
-                    <Paper elevation={1}>
-                        <Image source={`${window.location.origin}/${image}`}>
-                            <div></div>
-                        </Image>
+                <Wrapper innerRef={node => this.wrapper = node}>
+                    <Paper elevation={1} style={{padding: ".4rem 0"}}>
+                        <Tooltip title="click for more detials">
+                            <Image source={`${window.location.origin}/${image}`} onClick={(e) => showProductDetails(e, _id)}>
+                                <div></div>
+                            </Image>
+                        </Tooltip>
                         <Body>
                         <TextWrapper>
                             {name}
@@ -103,7 +107,7 @@ class CartItem extends Component {
                                     {price}$
                                 </Grid>
                                 <Grid item className="margin-left">
-                                    <IconButton className="action-button" color="primary"><Icon>add_shopping_cart</Icon></IconButton>
+                                    <IconButton className="action-button" ><Icon>add_shopping_cart</Icon></IconButton>
                                     <IconButton className="action-button"><Icon>favorite</Icon></IconButton>
                                 </Grid>
                             </Grid>
