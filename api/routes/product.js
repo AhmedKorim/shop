@@ -37,11 +37,29 @@ router.get('/', (req, res, next) => {
         })
 })
 
-router.post("/", upload.fields([{name: 'image', maxCount: 1}, {name: 'slide', maxCount: 10}]), (req, res, next) => {
+router.post("/", upload.fields([{name: 'product-image', maxCount: 1}, {name: 'slides', maxCount: 10}]), (req, res, next) => {
 
+    // validation
+    const statistics = JSON.parse(req.body.statistics);
+    const metaData = JSON.parse(req.body.metaData);
+    const slides = req.files.slides.map(slide => slide.path.replace(/\\/g, "/"))
+    metaData.image = req.files['product-image'][0].path.replace(/\\/g, '/');
+    const newProduct = new Product({metaData, statistics, slides})
 
+    newProduct.save()
 
-    console.log(req.body);
+        .then(product => {
+            res.status(201).json({
+                message: "product added successfully",
+                product: product
+            })
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({
+                message: "failed to add the product",
+            });
+        })
 
 
     // const newPorduct = new Product({

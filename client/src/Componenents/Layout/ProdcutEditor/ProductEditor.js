@@ -33,12 +33,12 @@ class ProductEditor extends React.Component {
     state = {
         controllers: {
             metaData: [
-                {label: "Product Name", type: "text", value: "", name: "product_name"},
-                {label: "Product Price", type: "text", value: "", name: "product_price"},
+                {label: "Product Name", type: "text", value: "", name: "name"},
+                {label: "Product Price", type: "text", value: "", name: "price"},
                 {label: "Image", type: "file", value: "", name: "image"},
                 {label: "Brand", type: "text", value: "", name: "brand"},
                 {label: "Available", type: "text", value: "", name: "available"},
-                {label: "Product description", type: "text", value: "", name: "product_description", multiline: true},
+                {label: "Product description", type: "text", value: "", name: "description", multiline: true},
             ],
             statistics: [
                 {label: "weight", name: "weight", value: "55", type: "text",},
@@ -65,47 +65,34 @@ class ProductEditor extends React.Component {
         })
     }
     buildProductData = () => {
-        /*   /!*   this.productData = this.state.controllers.reduce((acc, controllerCollection) => ({
-                  ...acc,
-                  [Object.keys(controllerCollection)[0]]: controllerCollection.map(controller => ({[controller.name]: controller.value}))
-              }), {})*!/
-
-           this.productData = {};
-           for (const controllerCollection in this.state.controllers) {
-               this.productData[controllerCollection] = this.state.controllers[controllerCollection]
-                   .map(controller => {
-                       if (Object.keys(controllerCollection)[0] !== 'slides') {
-                           return ({[controller.name]: controller.value})
-                       } else {
-                           console.log(controllerCollection);
-                       }
-                   });
-           }*/
+        const controllers = this.state.controllers;
         const productData = new FormData();
-        let metaData;
-        for (const controllerGroup in this.state.controllers) {
-            if (controllerGroup !== "slides") {
-                // metaData = {
-                //     ...metaData, [controllerGroup]: this.state.controllers[controllerGroup].map(controller => {
-                //         if (controller.type !== 'file') {
-                //             return {[controller.name]: controller.value}
-                //         } else {
-                //             return new FormData("image", controller.value);
-                //         }
-                //     })
-                // }
-            } else {
-                const fd = new FormData();
-                for (const file of this.state.controllers[controllerGroup]) {
-                    fd.append('slide' + file.name, file);
-                }
-                dataToSend = {
-                    ...dataToSend,
-                    [controllerGroup]: fd
-                }
+        let metaData = {};
+        let statistics = {};
+        //@structure
+        // metaData :array<objects> , slides:array<object> , productImage: field , productSlides:fields
+        for (const controllersGroup in controllers) {
+            if (controllersGroup === 'metaData') {
+                metaData = controllers[controllersGroup].map(controller => {
+                    if (controller.type === 'file') {
+                        productData.append('product-image', controller.value, 'test');
+                    } else {
+                        const {value, name, ...shit} = controller;
+                        return {[name]: value}
+                    }
+                }).filter(i => typeof i !== 'undefined').reduce((acc,i) => ({...acc, ...i}) ,{})
+            } else if (controllersGroup === 'slides') {
+                controllers[controllersGroup].forEach(({file}) => {
+                    productData.append('slides', file, 'test-slide')
+                })
+            } else if (controllersGroup === 'statistics') {
+                statistics = controllers[controllersGroup].map(i => ({[i.name]: i.value}))
             }
         }
-        return dataToSend;
+        // adding statistics to form data
+        productData.append('statistics', JSON.stringify(statistics));
+        productData.append('metaData', JSON.stringify(metaData));
+        return productData
     }
     handelStatisticData = () => {
         return this.state.controllers.statistics.reduce((acc, item) => ({...acc, [item.name]: item.value}), {});
