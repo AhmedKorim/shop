@@ -70,6 +70,41 @@ class MainHeader extends React.Component {
                                                         image: '//via.placeholder.com/300',
                                                         price: '100',
                                                         id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
+                                                    }, {
+                                                        name: 'name',
+                                                        image: '//via.placeholder.com/300',
+                                                        price: '100',
+                                                        id: 'img4'
                                                     },
                                                 ]}
                                             />

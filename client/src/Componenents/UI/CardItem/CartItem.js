@@ -7,6 +7,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import styled from 'styled-components';
 import {getSpringCoordinates} from "../../../Store/ActionsTypes";
+import {addProductToCart, toggleWishlist} from "../../../Store/ProdcutsActions";
 import AsyncIconButton from "../AsyncIconButton/AsyncIconButton";
 
 const Wrapper = styled.div`
@@ -71,12 +72,6 @@ class CartItem extends Component {
         this.props.history.push('/products/' + id)
 
     };
-    addToFavorite = () => {
-
-    }
-    addToCart = () => {
-
-    }
 
 
     render() {
@@ -88,16 +83,21 @@ class CartItem extends Component {
                         name,
                         price,
                         image,
-                    }
-                }
-
+                    },
+                    inCart,
+                    inWishlist
+                },
+                addProductToCart,
+                toggleWishlist,
+                asyncButtons
             },
             showProductDetails,
-            addToCart,
-            addToFavorite,
         } = this;
-        return (
 
+        const loadingButtons = asyncButtons.filter(buttons => buttons.indexOf(_id) > -1);
+        const addingToWishList = loadingButtons.find(e => e.indexOf('wishlist') > -1);
+        const addingToCart = loadingButtons.find(e => e.indexOf('cart') > -1);
+        return (
             <div>
                 <Wrapper innerRef={node => this.wrapper = node}>
                     <Paper elevation={1} style={{padding: ".4rem 0"}}>
@@ -117,18 +117,18 @@ class CartItem extends Component {
                                 </Grid>
                                 <Grid item xs container className="margin-left">
                                     <AsyncIconButton
-                                        clickHandler={addToCart}
+                                        clickHandler={() => addProductToCart(_id, inCart ? 0 : 1)}
                                         mainIcon="add_shopping_cart"
-                                        success={true}
-                                        successIcon="check"
-                                        loading={false}
+                                        success={inCart}
+                                        successIcon="add_shopping_cart"
+                                        loading={addingToCart}
                                     />
                                     <AsyncIconButton
-                                        clickHandler={addToFavorite}
+                                        clickHandler={() => toggleWishlist(_id)}
                                         mainIcon="favorite"
-                                        success={true}
+                                        success={inWishlist}
                                         successIcon="favorite"
-                                        loading={false}
+                                        loading={addingToWishList}
                                         successVariant={true}
                                     />
                                 </Grid>
@@ -145,7 +145,11 @@ class CartItem extends Component {
 const mapDispatchToPros = dispatch => {
     return {
         updatedSpringCoordinates: (coordinates) => dispatch(getSpringCoordinates(coordinates)),
+        addProductToCart: (productId, count) => dispatch(addProductToCart(productId, count)),
+        toggleWishlist: (productId) => dispatch(toggleWishlist(productId))
     }
 }
-
-export default withRouter(connect(null, mapDispatchToPros)(CartItem));
+const mapStateToProps = state => ({
+    asyncButtons: state.animations.asyncButtonLoading
+})
+export default withRouter(connect(mapStateToProps, mapDispatchToPros)(CartItem));

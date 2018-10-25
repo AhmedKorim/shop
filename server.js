@@ -4,8 +4,9 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
 const auth = require('./api/routes/Auth');
+const order = require('./api/routes/order');
 //db
-mongoose.connect('mongodb://localhost:27017/cycle_shop', (err, db) => {
+mongoose.connect('mongodb://localhost:27017/cycle_shop', {useNewUrlParser: true}, (err, db) => {
     if (!err) return console.log('database connected');
 
     console.log('database connection failed', err);
@@ -34,6 +35,7 @@ require('./config/passport')(passport);
 
 app.use('/api/products', product);
 app.use('/api/auth', auth);
+app.use('/api/order', order);
 app.use(morgan('dev'));
 
 app.listen(5555, err => {

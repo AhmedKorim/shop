@@ -11,10 +11,9 @@ const Wrapper = styled.div`
  height:45px;
  position: relative;
   .buttonSuccess {
-    background-color: ${({green}) => green[500]};
-    color: #fff !important;
+    color: ${({green}) => green[500]} ;
     &:hover {
-      background-color: ${({green}) => green[700]};
+      color: ${({green}) => green[700]};
     }
   }
   .buttonProgress {
@@ -48,19 +47,21 @@ const AsyncIconButton = ({
 
 
     let color;
-    if (loading || successVariant) {
-        if (!loading) {
-            color = "secondary";
+
+    color = "default"
+    if (successVariant) {
+        if (loading) {
+            color = 'primary'
+        }else if (success) {
+            color = 'secondary'
         }
-        if (!successVariant) {
+    } else {
+        if (loading) {
             color = 'primary'
         }
     }
-    if (loading && successVariant) {
-        color = 'primary'
-    }
-    if (!loading && !successVariant) {
-        color = 'default';
+    if(success){
+        color = 'secondary'
     }
     return (
         <Wrapper green={green}>

@@ -77,4 +77,7 @@ router.post("/", upload.fields([{name: 'product-image', maxCount: 1}, {name: 'sl
             });
         })
 });
+
+
+
 module.exports = router;

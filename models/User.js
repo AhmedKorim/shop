@@ -15,18 +15,27 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    wishList: {
-        type: Array,
-        default: []
-    },
-    cart: {
-        type: Array,
-        default: []
-    },
-    orders: {
-        type: Array,
-        default: []
-    }
+    wishlist: [
+         {
+             product: {
+                 type: Schema.Types.ObjectId,
+                 ref: 'Product'
+             }
+
+         }
+    ],
+    cart: [
+        {
+            product: {
+                type: Schema.Types.ObjectId,
+                ref: 'Product'
+            },
+            count: {
+                type: Number,
+                required: true
+            }
+        }
+    ]
 })
 
 module.exports = User = mongoose.model('user', UserSchema);
