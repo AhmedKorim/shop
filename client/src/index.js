@@ -11,6 +11,7 @@ import App from './Containers/App';
 import './index.scss';
 import registerServiceWorker from './registerServiceWorker';
 import AnimationReducer from "./Store/AnimationReducer";
+import userReducer from "./Store/authReducer";
 import EventReducer from "./Store/EventReducer";
 import productsReducer from "./Store/ProductsReducer";
 import themeReducer from "./Store/ThemeReducer";
@@ -24,6 +25,7 @@ const store = createStore(
         events: EventReducer,
         theme: themeReducer,
         products: productsReducer,
+        auth: userReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
 );

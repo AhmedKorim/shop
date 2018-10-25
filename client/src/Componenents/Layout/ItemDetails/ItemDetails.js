@@ -31,7 +31,7 @@ padding-top: 400px;
 &>div{
 position:relative;
 }
-transition:border-radius ease-in-out .3s;
+//transition:border-radius ease-in-out 1s;
 border-radius: ${props => props.wihtech ? "0%" : '0%'};
     background-color:${props => props.wihtech ? '#fff' : "transparent"};
 `
@@ -225,6 +225,7 @@ class ItemDetails extends React.Component {
 
 
         const {animationStart, animationEnd} = this.animtionVla();
+
         const id = this.props.match.params.id;
         let activeProduct = this.props.products.find(({_id}) => _id === id);
         if (!this.props.activeProduct && !activeProduct) {
@@ -267,10 +268,12 @@ class ItemDetails extends React.Component {
                                     startingY={animationStart.y}
                                     startingWidth={animationStart.width}
                                     startingHeight={animationStart.height}
+
                                     endingX={animationEnd.x}
                                     endingY={animationEnd.y}
                                     endingWidth={animationEnd.width}
                                     endingHeight={animationEnd.height}
+
                                     fire={this.wihtech}
                                     close={this.close}
                                     image={`${window.location.origin}/${image}`}

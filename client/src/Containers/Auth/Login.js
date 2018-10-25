@@ -2,7 +2,10 @@ import Button from "@material-ui/core/Button/Button";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 import React from 'react';
+import {connect} from 'react-redux';
+import {withRouter} from "react-router-dom";
 import FromControl from "../../Componenents/UI/FormControl/FormControl";
+import {login} from "../../Store/userAction";
 import './forms.scss';
 
 class Login extends React.Component {
@@ -14,7 +17,6 @@ class Login extends React.Component {
         errors: []
     }
     formControllers = [
-
         {type: 'text', value: '', label: "Email", name: "email"},
         {type: 'password', value: '', label: "Password", name: "password"},
     ]
@@ -40,7 +42,7 @@ class Login extends React.Component {
     }
     onSubmitHandler = (e) => {
         e.preventDefault();
-
+        this.props.login(this.state.controllers, this.props.history)
     }
 
     render() {
@@ -81,4 +83,8 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => ({})
+const mapDispatchToProps = dispatch => ({
+    login: (userData,history) => dispatch(login(userData,history))
+})
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

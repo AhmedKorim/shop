@@ -47,9 +47,12 @@ body, html {
 }
 
 .fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 150ms ease-in;
+  opacity: 1;
+  transition: opacity 500ms ease-in;
 }
+
+
+
 
 .fading-enter {
   opacity: .01;

@@ -2,7 +2,9 @@ import Button from "@material-ui/core/Button/Button";
 import Grid from "@material-ui/core/Grid/Grid";
 import Typography from "@material-ui/core/Typography/Typography";
 import React from 'react';
+import {connect} from 'react-redux';
 import FromControl from "../../Componenents/UI/FormControl/FormControl";
+import {register} from "../../Store/userAction";
 import './forms.scss';
 
 class Login extends React.Component {
@@ -43,7 +45,7 @@ class Login extends React.Component {
     }
     onSubmitHandler = (e) => {
         e.preventDefault();
-
+        this.props.register(this.state.controllers);
     }
 
     render() {
@@ -65,6 +67,9 @@ class Login extends React.Component {
                                     formControllers.map(controller => <Grid key={controller.name} item xs={12}>
                                         <FromControl payload={{...controller}}
                                                      changeHandler={onChangeHandler}
+                                                     variant="outlined"
+                                            // helperText=" "
+                                                     margin="normal"
                                         />
                                     </Grid>)
                                 }
@@ -80,4 +85,8 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+const mapStateToProps = state => ({})
+const mapDispatchToProps = dispatch => ({
+    register: (userData) => dispatch(register(userData))
+})
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

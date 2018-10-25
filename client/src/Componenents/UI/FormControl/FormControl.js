@@ -82,4 +82,6 @@ FromControl.propTypes = {
         multiline: PropTypes.string,
     }).isRequired,
     changeHandler: PropTypes.func.isRequired,
+    helperText: PropTypes.string,
+    margin:PropTypes.oneOf(['dense','normal',"none"])
 }
