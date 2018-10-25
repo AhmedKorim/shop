@@ -5,6 +5,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .UserWidgetAvatar{
+    background-color: #FF6D00;
+  }
   > div {
     width: 95%;
   }
