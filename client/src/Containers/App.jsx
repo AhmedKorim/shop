@@ -11,6 +11,7 @@ import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
 
 import {keyDownEvent, setCurrentScroll, setDeviceType} from "../Store/ActionsTypes";
 import {getAllProducts} from "../Store/ProdcutsActions";
+import {tryLogin} from "../Store/userAction";
 import AdminDashboard from "./AdminArea/AdminDashboard";
 import './App.scss';
 import Auth from "./Auth/Auth";
@@ -37,6 +38,7 @@ class App extends Component {
 
 
     componentDidMount() {
+        this.props.tryToLogin();
         this.props.getAllProducts();
         const dispatchEvent = this.props.fireKey;
         axios.get('http://home.test/ajax/server/rest.php?bicycle=all').then(resp => console.log(resp.data))
@@ -48,7 +50,6 @@ class App extends Component {
 
     render() {
         const {headerHeight, theme, mainColor, setCurrentScroll} = this.props;
-        console.log(theme);
         return (
             <Fragment>
                 <MainHeader/>
@@ -101,7 +102,8 @@ const mapDispatchToProps = dispatch => {
         fireKey: (e) => dispatch(keyDownEvent(e)),
         setDeviceType: (isMobile) => dispatch(setDeviceType(isMobile)),
         getAllProducts: _ => dispatch(getAllProducts()),
-        setCurrentScroll: scroll => dispatch(setCurrentScroll(scroll))
+        setCurrentScroll: scroll => dispatch(setCurrentScroll(scroll)),
+        tryToLogin: _ => dispatch(tryLogin())
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App)));

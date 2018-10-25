@@ -45,7 +45,7 @@ class Auth extends Component {
                 <div className="form-Wrapper">
                     <div className="form-item">
                         <Grow timeout={200} unmountOnExit MountOnEnter in={this.state.form === 'login'}>
-                            <Fade timeout={300} unmountOnExit MountOnEnter in={this.state.form}
+                            <Fade timeout={300} unmountOnExit MountOnEnter in={this.state.form === 'login'}
                                   style={{transitionDelay: this.state.form === "login" ? 200 : 0}}>
                                 <Login/>
                             </Fade>
@@ -53,7 +53,7 @@ class Auth extends Component {
                     </div>
                     <div className="form-item">
                         <Grow timeout={200} unmountOnExit MountOnEnter in={this.state.form === 'register'}>
-                            <Fade timeout={300} unmountOnExit MountOnEnter in={this.state.form}
+                            <Fade timeout={300} unmountOnExit MountOnEnter in={this.state.form === 'register'}
                                   style={{transitionDelay: this.state.form === "register" ? 200 : 0}}>
                                 <Register/>
                             </Fade>

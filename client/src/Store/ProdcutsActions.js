@@ -4,7 +4,6 @@ import {GET_ALL_PRODUCTS, SET_ACTIVE_PRODUCT} from "./ActionsTypes";
 export const getAllProducts = _ => dispatch => {
     axios.get('/api/products')
         .then(res => {
-            console.log(res.data.products);
             dispatch({
                 type: GET_ALL_PRODUCTS,
                 payload: {

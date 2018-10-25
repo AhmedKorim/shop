@@ -1,21 +1,21 @@
-import RootRef from "@material-ui/core/RootRef/RootRef";
-import React from 'react';
+import {withWidth} from "@material-ui/core";
+import Badge from "@material-ui/core/Badge/Badge";
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
-import Paper from '@material-ui/core/Paper';
-import Popper from '@material-ui/core/Popper';
+import Icon from "@material-ui/core/Icon/Icon";
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Paper from '@material-ui/core/Paper';
+import Popper from '@material-ui/core/Popper';
+import RootRef from "@material-ui/core/RootRef/RootRef";
 import {withStyles} from '@material-ui/core/styles';
-import Icon from "@material-ui/core/Icon/Icon";
-import './Menu.scss';
-import {withWidth} from "@material-ui/core";
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
-import Badge from "@material-ui/core/Badge/Badge";
 import Typography from "@material-ui/core/Typography/Typography";
-import {getCoords, getStyle} from "../../../tools/tools";
 import propTypes from "prop-types";
+import React from 'react';
+import {getCoords, getStyle} from "../../../tools/tools";
+import './Menu.scss';
 
 const styles = theme => ({
     root: {
@@ -180,7 +180,7 @@ class EnhancedMenu extends React.Component {
 
 
 EnhancedMenu.propTypes = {
-    classes: propTypes.string,
+    classes: propTypes.object,
     count: propTypes.number,
     icon: propTypes.string,
     bLabel: propTypes.string,

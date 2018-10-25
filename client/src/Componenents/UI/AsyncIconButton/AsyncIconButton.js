@@ -82,5 +82,5 @@ AsyncIconButton.propTypes = {
     loading: PropTypes.bool.isRequired,
     mainIcon: PropTypes.string.isRequired,
     success: PropTypes.bool.isRequired,
-    successIcon: PropTypes.bool.isRequired
+    successIcon: PropTypes.string.isRequired
 }
