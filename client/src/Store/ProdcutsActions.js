@@ -17,13 +17,16 @@ const setWishlist = wishlist => ({
     }
 })
 
-
-export const getAllProducts = _ => dispatch => {
+export const getUerData = dispatch => {
+console.log('getting metadat');
     axios.get('/api/order')
         .then(({data}) => {
             dispatch(setCart(data.cart));
             dispatch(setWishlist(data.wishlist))
         }).catch(err => console.log(err))
+}
+
+export const getAllProducts = _ => dispatch => {
     axios.get('/api/products')
         .then(res => {
             dispatch({
@@ -36,6 +39,8 @@ export const getAllProducts = _ => dispatch => {
         .catch(err => {
             console.log(err);
         })
+    getUerData(dispatch)
+
 }
 
 export const setActiveProduct = id => (dispatch) => {

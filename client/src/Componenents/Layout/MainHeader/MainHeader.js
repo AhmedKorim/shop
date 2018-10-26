@@ -48,66 +48,7 @@ class MainHeader extends React.Component {
                                             placement="bottom-end"
                                             floatLeft
                                             tip="notifications">
-                                            <ProudctList
-                                                listItems={[
-                                                    {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img1'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img2'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img3'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    }, {
-                                                        name: 'name',
-                                                        image: '//via.placeholder.com/300',
-                                                        price: '100',
-                                                        id: 'img4'
-                                                    },
-                                                ]}
-                                            />
+                                            <ProudctList/>
                                         </EnhancedMenu>
                                         <EnhancedMenu
                                             icon="account_circle"
