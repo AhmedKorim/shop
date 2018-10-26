@@ -52,7 +52,7 @@ const AsyncIconButton = ({
     if (successVariant) {
         if (loading) {
             color = 'primary'
-        }else if (success) {
+        } else if (success) {
             color = 'secondary'
         }
     } else {
@@ -60,7 +60,7 @@ const AsyncIconButton = ({
             color = 'primary'
         }
     }
-    if(success){
+    if (success) {
         color = 'secondary'
     }
     return (
@@ -68,7 +68,13 @@ const AsyncIconButton = ({
             <ButtonProgress
                 color={color}
                 className={success && !successVariant ? "buttonSuccess" : ""}
-                onClick={clickHandler}
+                onClick={(e) => {
+                    e.stopPropagation();
+                    clickHandler()
+                    return 0;
+                }}
+                onMouseDown={e => e.stopPropagation()}
+                onTouchStart={e => e.stopPropagation()}
             >
                 {success ? <Icon>{successIcon}</Icon> : <Icon>{mainIcon}</Icon>}
             </ButtonProgress>

@@ -1,8 +1,9 @@
+import {ButtonBase} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid/Grid";
 import Paper from "@material-ui/core/Paper/Paper";
 import Tooltip from "@material-ui/core/Tooltip/Tooltip";
 import Typography from "@material-ui/core/Typography/Typography";
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import styled from 'styled-components';
@@ -10,7 +11,7 @@ import {getSpringCoordinates} from "../../../Store/ActionsTypes";
 import {addProductToCart, toggleWishlist} from "../../../Store/ProdcutsActions";
 import AsyncIconButton from "../AsyncIconButton/AsyncIconButton";
 
-const Wrapper = styled.div`
+const Wrapper = styled(ButtonBase)`
   max-width:250px;
   min-width: 200px;
 `;
@@ -55,6 +56,7 @@ const Price = styled.div`
    }
 `;
 
+
 class CartItem extends Component {
 
     showProductDetails = (e, id) => {
@@ -98,11 +100,12 @@ class CartItem extends Component {
         const addingToWishList = loadingButtons.find(e => e.indexOf('wishlist') > -1);
         const addingToCart = loadingButtons.find(e => e.indexOf('cart') > -1);
         return (
-            <div>
-                <Wrapper innerRef={node => this.wrapper = node}>
-                    <Paper elevation={1} style={{padding: ".4rem 0"}}>
+            <div ref={node => this.wrapper = node}>
+                <Wrapper  component="div" onClick={(e) => showProductDetails(e, _id)}
+                >
+                    <Paper elevation={1} style={{padding: ".4rem 0", width: '100%'}}>
                         <Tooltip title="click for more detials">
-                            <Image source={`${window.location.origin}/${image}`} onClick={(e) => showProductDetails(e, _id)}>
+                            <Image source={`${window.location.origin}/${image}`} >
                                 <div></div>
                             </Image>
                         </Tooltip>
