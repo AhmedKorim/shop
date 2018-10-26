@@ -103,10 +103,9 @@ body, html {
   }
 }
 
-.fadeGreenify{
+.fadeGreenify {
   animation: fadeGreenify ease-in-out 1s forwards;
 }
-
 
 .fading-enter {
   opacity: .01;
@@ -129,4 +128,9 @@ body, html {
 
 .w-100 {
   width: 100%;
+}
+
+// drawer model  paper
+.MainDrawerPaper {
+  width: 240px;
 }

@@ -1,18 +1,18 @@
-import {withTheme} from '@material-ui/core';
+import {withTheme, withWidth} from '@material-ui/core';
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import Toolbar from "@material-ui/core/Toolbar/Toolbar";
-import React from 'react';
+import React, {Fragment} from 'react';
 import {connect} from "react-redux";
 import styled from "styled-components";
 import {getHeaderConfig} from "../../../Store/ActionsTypes";
 import ProudctList from "../../UI/List/List";
 import EnhancedMenu from "../../UI/Menu/EnhancedMenu";
 import UserWidget from "../../UI/UserWidget/UserWidget";
-import NavigationList from "../NavigationList/NavigatinList";
+import Navigation from "../Navigation/Navigation";
 
 const AppHeader = styled(AppBar)`
 position:relative !important;
-z-index: 9999 !important;
+z-index: 1250 !important;
 background-color:${({theme, headerColor}) => headerColor || theme.palette.primary.main} !important;
 box-shadow: ${({theme: {shadows}}) => shadows[3]} !important;
 
@@ -32,6 +32,7 @@ class MainHeader extends React.Component {
     }
 
     render() {
+        const {width} = this.props;
         return (
             <header ref={node => this.$header = node}>
                 <AppHeader component="div" position="relative" theme={this.props.theme} headerColor={this.props.headerColor}>
@@ -39,19 +40,10 @@ class MainHeader extends React.Component {
                         <div className="container">
                             <div className="row">
                                 <div className="col-md-8">
-                                    <NavigationList
-                                        direction="y"
-                                        pathname={this.props.pathname}
-                                        links={[
-                                            {
-                                                label: 'products',
-                                                target: '/products'
-                                            },
-                                            {
-                                                label: 'admin area',
-                                                target: '/admin_area'
-                                            }
-                                        ]}/>
+                                    {!(width === 'xs' || width === 'sm') &&
+                                    <Navigation
+                                        dir="x"
+                                    />}
                                 </div>
                                 <div className="col-md-4 col-sm-12 d-flex">
                                     <div className="ml-auto d-flex">
@@ -87,7 +79,6 @@ const mapDispatchToProps = dispatch => {
 }
 const mapStateToProps = state => ({
     headerColor: state.animations.header.color,
-    pathname: state.router.history.location.pathname
 
 })
-export default connect(mapStateToProps, mapDispatchToProps)(withTheme()(MainHeader));
+export default withWidth()(connect(mapStateToProps, mapDispatchToProps)(withTheme()(MainHeader)));

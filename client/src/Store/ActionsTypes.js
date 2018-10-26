@@ -20,6 +20,7 @@ export const SET_ACTIVE_PRODUCT = 'SET_ACTIVE_PRODUCT';
 export const ADD_ASYNC_BUTTON = 'ADD_ASYNC_BUTTON';
 export const REMOVE_ASYNC_BUTTON = 'REMOVE_ASYNC_BUTTON';
 
+    export const TOGGLE_DRAWER = 'TOGGLE_DRAWER';
 
 export const getSpringCoordinates = (coordinates) => {
     return dispatch => {

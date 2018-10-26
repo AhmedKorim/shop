@@ -5,7 +5,7 @@ import {
     REMOVE_ASYNC_BUTTON,
     SET_CURRENT_SCROLL,
     SET_HEADER_COLOR,
-    SET_MAIN_COLOR
+    SET_MAIN_COLOR, TOGGLE_DRAWER
 } from "./ActionsTypes";
 
 const initialState = {
@@ -23,7 +23,8 @@ const initialState = {
         color: null
     },
     scroll: null,
-    asyncButtonLoading: []
+    asyncButtonLoading: [],
+    drawer: false
 };
 
 const AnimationReducer = (state = initialState, action) => {
@@ -76,6 +77,11 @@ const AnimationReducer = (state = initialState, action) => {
             return {
                 ...state,
                 asyncButtonLoading: state.asyncButtonLoading.filter(asyncButtonId => asyncButtonId !== action.payload.asyncButtonId)
+            }
+        case TOGGLE_DRAWER:
+            return {
+                ...state,
+                drawer: !state.drawer
             }
         default:
             return {

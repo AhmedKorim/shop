@@ -281,72 +281,84 @@ class ItemDetails extends React.Component {
                         />
                         <Fade in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300}
                               style={{transitionDelay: this.state.showContent ? 200 : 0}}>
-                            <Content shadows={theme.shadows}>
-                                <div className="container">
-                                    <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter
-                                          style={{transitionDelay: this.state.showContent ? 200 : 100}}>
-                                        <ProductAvatar>
-                                            <Avatar className="Avatar">{brand}</Avatar>
-                                        </ProductAvatar>
-                                    </Zoom>
-                                </div>
-                                <Fragment>
-                                    {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
-                                    <div className="container">
-                                        <RateWrapper>
-                                            <div>
-                                                <Rating rate={80}/>
-                                            </div>
-                                        </RateWrapper>
+                            <div className="container">
+                                <Content shadows={theme.shadows}>
+                                    <div>
+                                        <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter
+                                              style={{transitionDelay: this.state.showContent ? 200 : 100}}>
+                                            <ProductAvatar>
+                                                <Avatar className="Avatar">{brand}</Avatar>
+                                            </ProductAvatar>
+                                        </Zoom>
                                     </div>
-                                    <div className="container">
-                                        <Row>
-                                            <div className="col-7">
-                                                <Typography variant="headline" component="h4" className="disription_header">
-                                                    Discription
-                                                </Typography>
-                                                <Typography>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                    harum,
-                                                    molestiae
-                                                    nisi
-                                                    qui
-                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                </Typography>
-                                                <br/>
-                                                <Typography>
-                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                    harum,
-                                                    molestiae
-                                                    nisi
-                                                    quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta
-                                                    excepturi
-                                                    harum,
-                                                    molestiae
-                                                    nisi
-                                                    qui
-                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                </Typography>
-                                            </div>
-                                            <div className="col">
-                                                <Datavisulization>
-                                                    <RadarChart current={name} statistics={statistics}/>
-                                                </Datavisulization>
-                                            </div>
-                                        </Row>
-                                    </div>
-                                    {/*</Collapse>*/}
-                                    <div className="container">
-                                        <SliderShow>
-                                            <ImgSwipper
-                                                imagesArray={slides.map(slide => ({[slide]: `${window.location.origin}/${slide}`})
-                                                )}
-                                            />
-                                        </SliderShow>
-                                    </div>
-                                </Fragment>
-                            </Content>
+                                    <Fragment>
+                                        {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
+
+                                        <div>
+                                            <RateWrapper>
+                                                <div>
+                                                    <Rating rate={80}/>
+                                                </div>
+                                            </RateWrapper>
+                                        </div>
+                                        <div>
+                                            <Row>
+                                          {/*      <div className="col-7">
+                                                    <div style={{textAlign: 'center'}}>
+                                                        <Typography variant="headline" component="h3" className="disription_header">
+                                                            {name} <br/>
+                                                        </Typography>
+                                                        <Typography variant="body1" component="span" className="disription_header">
+                                                            {brand}
+                                                        </Typography>
+                                                    </div>
+                                                    <Typography variant="subheading" component="h4" className="disription_header">
+                                                        Discription
+                                                    </Typography>
+                                                    <Typography>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                        harum,
+                                                        molestiae
+                                                        nisi
+                                                        qui
+                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                    </Typography>
+                                                    <br/>
+                                                    <Typography>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                        harum,
+                                                        molestiae
+                                                        nisi
+                                                        quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta
+                                                        excepturi
+                                                        harum,
+                                                        molestiae
+                                                        nisi
+                                                        qui
+                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                    </Typography>
+                                                </div>*/}
+                                                <div className="col">
+                                                    <Datavisulization>
+                                                        <RadarChart current={name} statistics={statistics}/>
+                                                    </Datavisulization>
+                                                </div>
+                                            </Row>
+                                        </div>
+                                        {/*</Collapse>*/}
+                                        <div className="container">
+                                            <SliderShow>
+                                                <ImgSwipper
+                                                    imagesArray={slides.map(slide => ({[slide]: `${window.location.origin}/${slide}`})
+                                                    )}
+                                                />
+                                            </SliderShow>
+                                        </div>
+                                    </Fragment>
+                                </Content>
+                            </div>
                         </Fade>
+
                         <FapWrapper>
                             <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={500}
                                   style={{transitionDelay: this.state.showContent ? 600 : 0}}>

@@ -1,4 +1,4 @@
-import {withTheme} from '@material-ui/core'
+import {withTheme, withWidth} from '@material-ui/core'
 import axios from "axios";
 import React, {Component, Fragment} from 'react';
 import PerfectScrollbar from 'react-perfect-scrollbar'
@@ -8,6 +8,8 @@ import {CSSTransition, TransitionGroup} from "react-transition-group";
 import styled from "styled-components";
 import ItemDetails from "../Componenents/Layout/ItemDetails/ItemDetails";
 import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
+import SideDrawer from "../Componenents/UI/Drawer/Drawer";
+import DrawerButton from "../Componenents/UI/DrawerButton/DrawerButton";
 
 import {keyDownEvent, setCurrentScroll, setDeviceType} from "../Store/ActionsTypes";
 import {getAllProducts} from "../Store/ProdcutsActions";
@@ -56,9 +58,16 @@ class App extends Component {
     }
 
     render() {
-        const {headerHeight, theme, mainColor, setCurrentScroll} = this.props;
+        const {headerHeight, theme, mainColor, setCurrentScroll, width} = this.props;
+        console.log(width);
         return (
             <Fragment>
+                {(width === 'xs' || width === 'sm') &&
+                <Fragment>
+                    <DrawerButton/>
+                    <SideDrawer/>
+                </Fragment>
+                }
                 <MainHeader/>
                 <Main headerHeight={headerHeight || 64} theme={theme} mainColor={mainColor}>
                     <PerfectScrollbar onScrollY={container => container && setCurrentScroll(container.scrollTop)}>
@@ -114,4 +123,4 @@ const mapDispatchToProps = dispatch => {
         setHistory: history => dispatch(setHistory(history))
     }
 }
-export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App)));
+export default withRouter(withWidth()(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App))));
