@@ -11,6 +11,7 @@ import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
 
 import {keyDownEvent, setCurrentScroll, setDeviceType} from "../Store/ActionsTypes";
 import {getAllProducts} from "../Store/ProdcutsActions";
+import {setHistory} from "../Store/router/routerActions";
 import {tryLogin} from "../Store/userAction";
 import AdminDashboard from "./AdminArea/AdminDashboard";
 import './App.scss';
@@ -38,7 +39,12 @@ class App extends Component {
     };
 
 
+    componentWillReceiveProps(nextProps) {
+        this.props.setHistory(nextProps.history)
+    }
+
     componentDidMount() {
+        this.props.setHistory(this.props.history)
         this.props.tryToLogin();
         this.props.getAllProducts();
         const dispatchEvent = this.props.fireKey;
@@ -104,7 +110,8 @@ const mapDispatchToProps = dispatch => {
         setDeviceType: (isMobile) => dispatch(setDeviceType(isMobile)),
         getAllProducts: _ => dispatch(getAllProducts()),
         setCurrentScroll: scroll => dispatch(setCurrentScroll(scroll)),
-        tryToLogin: _ => dispatch(tryLogin())
+        tryToLogin: _ => dispatch(tryLogin()),
+        setHistory: history => dispatch(setHistory(history))
     }
 }
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(withTheme()(App)));

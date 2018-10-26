@@ -14,6 +14,7 @@ import AnimationReducer from "./Store/AnimationReducer";
 import userReducer from "./Store/authReducer";
 import EventReducer from "./Store/EventReducer";
 import productsReducer from "./Store/ProductsReducer";
+import routerReducer from "./Store/router/routerReducer";
 import themeReducer from "./Store/ThemeReducer";
 
 
@@ -25,7 +26,8 @@ const store = createStore(
         events: EventReducer,
         theme: themeReducer,
         products: productsReducer,
-        auth: userReducer
+        auth: userReducer,
+        router: routerReducer
     }),
     composeEnhancers(applyMiddleware(thunk))
 );
