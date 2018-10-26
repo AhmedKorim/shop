@@ -63,6 +63,7 @@ router.post('/cart', passport.authenticate('jwt', {session: false}), (req, res) 
                 const itemOnCart = user.cart.find(({product: id}) =>
                     id.toString() === productId
                 );
+
                 if (!!itemOnCart && itemOnCart.count === count) {
                     return res.status(200)
                         .json({

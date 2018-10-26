@@ -101,11 +101,11 @@ class CartItem extends Component {
         const addingToCart = loadingButtons.find(e => e.indexOf('cart') > -1);
         return (
             <div ref={node => this.wrapper = node}>
-                <Wrapper  component="div" onClick={(e) => showProductDetails(e, _id)}
+                <Wrapper component="div" onClick={(e) => showProductDetails(e, _id)}
                 >
                     <Paper elevation={1} style={{padding: ".4rem 0", width: '100%'}}>
                         <Tooltip title="click for more detials">
-                            <Image source={`${window.location.origin}/${image}`} >
+                            <Image source={`${window.location.origin}/${image}`}>
                                 <div></div>
                             </Image>
                         </Tooltip>
@@ -127,6 +127,7 @@ class CartItem extends Component {
                                         loading={addingToCart}
                                     />
                                     <AsyncIconButton
+                                        variant="fab"
                                         clickHandler={() => toggleWishlist(_id)}
                                         mainIcon="favorite"
                                         success={inWishlist}

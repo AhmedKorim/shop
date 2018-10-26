@@ -33,10 +33,11 @@ const EnhancedList = styled(List)`
 padding: 0 .2rem !important;
 margin: 0!important;
 max-height: 270px;
+width: 240px !important;
 
 .productsListItem{
 padding:  .1rem ;
-width: 240px !important;
+width: 100%;
 }
 .itemData{
 text-align: center;
@@ -100,7 +101,7 @@ function ProudctList(props) {
                                                     <Grid container item xs={10}>
                                                         <Grid container justify="center" alignItems="center">
                                                             <Grid item xs={4}>
-                                                                <Img src={image} alt="productName"/>
+                                                                <Img src={window.location.origin + '/' + image} alt="productName"/>
                                                             </Grid>
                                                             <Grid item container alignItems="center" xs className="itemData">
                                                                 <Grid xs={12} item className="cartItemheader">

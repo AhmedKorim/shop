@@ -1,3 +1,4 @@
+import Button from "@material-ui/core/Button/Button";
 import CircularProgress from "@material-ui/core/CircularProgress/CircularProgress";
 import {green} from '@material-ui/core/colors'
 import Icon from "@material-ui/core/Icon/Icon";
@@ -42,10 +43,9 @@ const AsyncIconButton = ({
                              mainIcon,
                              successIcon,
                              clickHandler,
-                             successVariant
+                             successVariant,
+                             ...rest
                          }) => {
-
-
     let color;
 
     color = "default"

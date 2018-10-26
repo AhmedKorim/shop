@@ -18,7 +18,7 @@ const setWishlist = wishlist => ({
 })
 
 export const getUerData = dispatch => {
-console.log('getting metadat');
+    console.log('getting metadat');
     axios.get('/api/order')
         .then(({data}) => {
             dispatch(setCart(data.cart));
@@ -78,7 +78,7 @@ export const addProductToCart = (productId, count) => (dispatch, getState) => {
     // dispatch(setCart(newCart));
     // dispatch new async button
     dispatch(addAsyncButton(productId + "cart"));
-    axios.post('api/order/cart', {
+    axios.post('/api/order/cart', {
         id: productId,
         count
     })
