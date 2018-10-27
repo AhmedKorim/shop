@@ -103,7 +103,7 @@ class EnhancedMenu extends React.Component {
                 <div>
                     <Tooltip title={bLabel || tip} placement="bottom-end">
                         <Button
-                            className={["TWhite", "badgeButton", classes.button].join(' ')}
+                            className={["TWhite", "badgeButton__", classes.button].join(' ')}
                             size="small"
                             buttonRef={node => {
                                 this.anchorEl = node;
@@ -112,7 +112,7 @@ class EnhancedMenu extends React.Component {
                             aria-haspopup="true"
                             onClick={this.handleToggle}
                         >
-                            {count > 0 ? <Badge badgeContent={count} color="secondary" className="badge">
+                            {count > 0 ? <Badge badgeContent={count} color="secondary" className="badge__">
                                     {width === 'xs' ?
                                         <Icon className={[classes.leftIcon, "TWhite", classes.iconSmall].join(" ")}>{icon}</Icon>
                                         : <span className="TWhite">{bLabel || null} <Icon
@@ -120,7 +120,7 @@ class EnhancedMenu extends React.Component {
                                         {icon}</Icon>
                                     </span>}
                                 </Badge> :
-                                icon ? <Icon className={[classes.leftIcon, "TWhite", 'badge', classes.iconSmall].join(" ")}>{icon}</Icon>
+                                icon ? <Icon className={[classes.leftIcon, "TWhite", 'badge__', classes.iconSmall].join(" ")}>{icon}</Icon>
                                     : <Typography>{label}</Typography>
                             }
                         </Button>

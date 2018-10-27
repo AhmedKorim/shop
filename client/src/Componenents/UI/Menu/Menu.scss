@@ -1,8 +1,10 @@
 .akMenu {
   .TWhite {
     text-wrap: avoid;
+    overflow: visible !important;
   }
-  .badgeButton {
+  .badgeButton__ {
+    text-align: center;
     position: relative;
   }
   .menuArrow {

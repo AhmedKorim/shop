@@ -17,6 +17,7 @@ import ImgSwipper from "../../UI/ImgSwipper/ImgSwipper";
 import RadarChart from "../../UI/RadarChart/RadarChart";
 import Rating from "../../UI/Rating/Rating";
 import SpringItem from "../../UI/SpringItem/SpringItem"
+import ProductAvatar from "../Navigation/ProductAvatar";
 
 
 const Wrapper = styled.section`
@@ -64,27 +65,7 @@ z-index: 555;
 font-weight: bold;
 `;
 
-const ProductAvatar = styled.div`
-  position: absolute;
- height: 4rem;
- width: 4rem;
- border-radius: 50%;
- top: -2rem;
- display:flex;
- justify-content: center;
- align-items: center;
-  z-index: 45;
-  .Avatar{
-  background-color:#FF6D00;
-  width: 98%;
-  height: 98%;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-style: italic;
-  font-size:1.3rem;
-  }
-`
+
 const ResImg = styled.div`
 padding: 1rem 0;
 text-align: center;
@@ -286,14 +267,11 @@ class ItemDetails extends React.Component {
                                     <div>
                                         <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter
                                               style={{transitionDelay: this.state.showContent ? 200 : 100}}>
-                                            <ProductAvatar>
-                                                <Avatar className="Avatar">{brand}</Avatar>
-                                            </ProductAvatar>
+                                            <ProductAvatar text={brand}/>
                                         </Zoom>
                                     </div>
                                     <Fragment>
                                         {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
-
                                         <div>
                                             <RateWrapper>
                                                 <div>
@@ -303,7 +281,7 @@ class ItemDetails extends React.Component {
                                         </div>
                                         <div>
                                             <Row>
-                                          {/*      <div className="col-7">
+                                                {/*      <div className="col-7">
                                                     <div style={{textAlign: 'center'}}>
                                                         <Typography variant="headline" component="h3" className="disription_header">
                                                             {name} <br/>
@@ -358,7 +336,6 @@ class ItemDetails extends React.Component {
                                 </Content>
                             </div>
                         </Fade>
-
                         <FapWrapper>
                             <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={500}
                                   style={{transitionDelay: this.state.showContent ? 600 : 0}}>

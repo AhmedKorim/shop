@@ -2,18 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="240f61ba-258e-4283-96b9-087e0e3aaeab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/Componenents/Layout/Navigation/Navigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Componenents/UI/Drawer/Drawer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/MainHeader.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/MainHeader.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinList.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Containers/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Containers/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Store/ActionsTypes.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Store/ActionsTypes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/Store/AnimationReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Store/AnimationReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Componenents/UI/Menu/Menu.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Componenents/UI/Menu/Menu.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/Store/userAction.js___jb_tmp___" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/index.scss___jb_tmp___" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +48,7 @@
     <option name="diffsInCommentsNonSignificant" value="false" />
   </component>
   <component name="DarkyenusTimeTracker">
-    <option name="totalTimeSeconds" value="111379" />
+    <option name="totalTimeSeconds" value="113602" />
     <option name="idleThresholdMs" value="15000" />
   </component>
   <component name="DatabaseView">
@@ -73,7 +69,7 @@
     <session id="2060422284">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="5" />
+          <entry key="project.closed" value="6" />
           <entry key="project.open.time.101" value="1" />
           <entry key="project.open.time.103" value="1" />
           <entry key="project.open.time.107" value="2" />
@@ -84,10 +80,11 @@
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.60" value="1" />
           <entry key="project.open.time.61" value="1" />
+          <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.9" value="1" />
           <entry key="project.open.time.99" value="1" />
-          <entry key="project.opened" value="14" />
+          <entry key="project.opened" value="15" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -98,13 +95,13 @@
           <entry key="css" value="2" />
           <entry key="flow" value="2" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="215" />
+          <entry key="js" value="221" />
           <entry key="json" value="9" />
           <entry key="jsx" value="14" />
           <entry key="null/cycle_shop/products" value="20" />
           <entry key="null/cycle_shop/users" value="26" />
           <entry key="null/pwa/subscriptions" value="1" />
-          <entry key="scss" value="11" />
+          <entry key="scss" value="13" />
           <entry key="ts" value="7" />
         </counts>
       </usages-collector>
@@ -116,21 +113,23 @@
           <entry key="JSON" value="4" />
           <entry key="JSON5" value="5" />
           <entry key="JSX Harmony" value="14" />
-          <entry key="JavaScript" value="218" />
+          <entry key="JavaScript" value="222" />
           <entry key="MONGO" value="47" />
-          <entry key="SCSS" value="11" />
+          <entry key="SCSS" value="13" />
+          <entry key="Scratch" value="2" />
           <entry key="TypeScript" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="Mongo Console" value="82" />
           <entry key="css" value="1" />
           <entry key="dummy" value="18" />
           <entry key="gitignore" value="4" />
-          <entry key="js" value="38626" />
+          <entry key="js" value="39495" />
           <entry key="json" value="120" />
           <entry key="jsx" value="1253" />
-          <entry key="scss" value="543" />
+          <entry key="scss" value="589" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -140,15 +139,15 @@
           <entry key="JSON" value="76" />
           <entry key="JSON5" value="44" />
           <entry key="JSX Harmony" value="1253" />
-          <entry key="JavaScript" value="38359" />
+          <entry key="JavaScript" value="39228" />
           <entry key="Less" value="267" />
-          <entry key="PLAIN_TEXT" value="18" />
-          <entry key="SCSS" value="543" />
+          <entry key="PLAIN_TEXT" value="100" />
+          <entry key="SCSS" value="589" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="LanguageService" value="14" />
+          <entry key="LanguageService" value="15" />
           <entry key="TypeScriptServerServiceImpl" value="3" />
         </counts>
       </usages-collector>
@@ -158,118 +157,77 @@
     <favorites_list name="shop" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.73007715">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/MainHeader.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="412">
-                  <caret line="42" column="75" selection-start-line="42" selection-start-column="75" selection-end-line="42" selection-end-column="75" />
-                  <folding>
-                    <element signature="e#0#44#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Drawer/Drawer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="684">
-                  <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-                  <folding>
-                    <element signature="e#0#53#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Navigation/Navigation.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="783">
-                  <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-                  <folding>
-                    <element signature="e#0#34#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Containers/App.jsx">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-                  <folding>
-                    <element signature="e#0#54#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="459">
-                  <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-                  <folding>
-                    <element signature="e#0#47#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Store/AnimationReducer.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="486">
-                  <caret line="26" column="17" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="17" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="141">
-                  <caret line="304" column="45" selection-start-line="304" selection-start-column="42" selection-end-line="338" selection-end-column="57" />
-                  <folding>
-                    <element signature="e#9460#10086#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/List/List.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1949">
-                  <caret line="96" column="64" lean-forward="true" selection-start-line="96" selection-start-column="64" selection-end-line="96" selection-end-column="64" />
-                  <folding>
-                    <element signature="e#0#53#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/api/routes/order.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="42">
-                  <caret line="68" column="29" lean-forward="true" selection-start-line="68" selection-start-column="29" selection-end-line="68" selection-end-column="29" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Store/AnimationReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="486">
+              <caret line="26" column="17" selection-start-line="26" selection-start-column="12" selection-end-line="26" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1674">
+              <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Navigation/ProductAvatar.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="756">
+              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2727">
+              <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Menu/Menu.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -281,10 +239,14 @@
       <find>rate</find>
       <find>spring</find>
       <find>bounceOutL</find>
+      <find>badgeButton</find>
+      <find>TWhite</find>
+      <find>badge</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -318,7 +280,6 @@
         <option value="$PROJECT_DIR$/client/src/Shared/axios.js" />
         <option value="$PROJECT_DIR$/client/src/Store/authReducer.js" />
         <option value="$PROJECT_DIR$/client/src/Containers/Auth/Auth.js" />
-        <option value="$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/UI/UserWidget/UserWidget.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/UI/UserWidget/UserWidget.scss" />
         <option value="$USER_HOME$/Desktop/animate.css" />
@@ -342,7 +303,6 @@
         <option value="$PROJECT_DIR$/client/src/Store/router/routerReducer.js" />
         <option value="$PROJECT_DIR$/client/src/Store/AnimationReducer.js" />
         <option value="$PROJECT_DIR$/client/src/Store/ActionsTypes.js" />
-        <option value="$PROJECT_DIR$/client/src/index.scss" />
         <option value="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinList.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/Layout/NavigationList/NavigatinListItem.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/UI/Drawer/Drawer.js" />
@@ -351,6 +311,12 @@
         <option value="$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/MainHeader.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js" />
         <option value="$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js" />
+        <option value="$PROJECT_DIR$/client/src/assets/idnex.js" />
+        <option value="$PROJECT_DIR$/client/src/Componenents/Layout/Navigation/ProductAvatar.js" />
+        <option value="$PROJECT_DIR$/client/src/tools/index.js" />
+        <option value="$PROJECT_DIR$/client/src/index.scss" />
+        <option value="$PROJECT_DIR$/client/src/Componenents/UI/Menu/Menu.scss" />
+        <option value="$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js" />
       </list>
     </option>
   </component>
@@ -384,7 +350,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
     <option name="x" value="288" />
     <option name="y" value="-18" />
     <option name="width" value="800" />
@@ -396,7 +362,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="NBKnowledgePane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,53 +380,26 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Componenents" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Componenents" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Componenents" type="462c0819:PsiDirectoryNode" />
-              <item name="UI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Store" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="NBKnowledgePane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="true" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="JavaScript" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="8.11.3" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../meetingups" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="settings.nodejs" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2018.2\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
@@ -483,11 +421,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.react">
+  <component name="RunManager" selected="Node.js.index.js">
     <configuration name="Unnamed" type="ChromiumRemoteDebugType" factoryName="Chromium Remote" port="9229" restartOnDisconnect="true">
       <method v="2" />
     </configuration>
     <configuration name="react" type="JavascriptDebugType" factoryName="JavaScript Debug" uri="http://localhost:3000/">
+      <method v="2" />
+    </configuration>
+    <configuration name="index.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" nameIsGenerated="true" path-to-js-file="index.js" working-dir="$PROJECT_DIR$/client/src/tools">
       <method v="2" />
     </configuration>
     <configuration name="start (1)" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
@@ -515,11 +456,13 @@
       <item itemvalue="JavaScript Debug.react" />
       <item itemvalue="npm.start" />
       <item itemvalue="npm.start (1)" />
+      <item itemvalue="Node.js.index.js" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
         <item itemvalue="npm.start (1)" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="Node.js.index.js" />
       </list>
     </recent_temporary>
   </component>
@@ -548,17 +491,18 @@
       <workItem from="1540480664923" duration="32439000" />
       <workItem from="1540551384769" duration="127000" />
       <workItem from="1540551691462" duration="28422000" />
+      <workItem from="1540628135669" duration="1458000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160124000" />
+    <option name="totallyTimeSpent" value="164960000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="-6" width="1612" height="872" extended-state="6" />
+    <frame x="0" y="0" width="1600" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828961" weight="0.22172236" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49828961" weight="0.3277635" />
       <window_info id="Structure" order="1" sideWeight="0.5013123" side_tool="true" weight="0.24485861" />
       <window_info id="Compare Directories" order="2" />
       <window_info id="DB Browser" order="3" weight="0.32969153" />
@@ -566,7 +510,7 @@
       <window_info id="Favorites" order="5" weight="0.32904884" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.5418381" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.48422498" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5663391" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.36899862" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -574,32 +518,58 @@
       <window_info anchor="bottom" id="Get Gist" order="7" />
       <window_info anchor="bottom" id="Tail" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Quokka" order="10" />
+      <window_info anchor="bottom" id="Quokka" order="10" weight="0.32921812" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
       <window_info anchor="bottom" id="RNConsole" order="13" weight="0.32921812" />
       <window_info anchor="bottom" id="CoderMirror" order="14" weight="1.0" />
       <window_info anchor="bottom" id="Regex Tester" order="15" />
       <window_info anchor="bottom" id="CSS-X-Fire" order="16" />
-      <window_info anchor="bottom" id="Terminal" order="17" weight="0.73799723" />
-      <window_info anchor="bottom" id="Event Log" order="18" side_tool="true" weight="0.32921812" />
-      <window_info anchor="bottom" id="DB Execution Console" order="19" />
-      <window_info anchor="bottom" id="Graph Database Console" order="20" />
-      <window_info anchor="bottom" id="Tasks" order="21" weight="0.32921812" />
-      <window_info anchor="bottom" id="TypeScript" order="22" />
+      <window_info anchor="bottom" id="Event Log" order="17" side_tool="true" weight="0.32921812" />
+      <window_info anchor="bottom" id="DB Execution Console" order="18" />
+      <window_info anchor="bottom" id="Graph Database Console" order="19" />
+      <window_info anchor="bottom" id="Tasks" order="20" weight="0.32921812" />
+      <window_info anchor="bottom" id="TypeScript" order="21" />
+      <window_info anchor="bottom" id="Terminal" order="22" weight="0.48157248" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SvgViewer" order="3" weight="0.32969153" />
       <window_info anchor="right" id="Coding Counter" order="4" />
       <window_info anchor="right" id="Database" order="5" weight="0.32969153" />
-      <window_info anchor="right" id="Mongo Explorer" order="6" weight="0.1895887" />
+      <window_info anchor="right" id="Mongo Explorer" order="6" weight="0.33997428" />
       <window_info anchor="right" id="Quick Notes" order="7" weight="0.3293011" />
-      <window_info anchor="right" id="Graph Database" order="8" />
+      <window_info anchor="right" id="Graph Database" order="8" weight="0.32969153" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -718,23 +688,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/mongodb-core/lib/topologies/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/DataTable/DataTable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="89" column="85" lean-forward="true" selection-start-line="89" selection-start-column="85" selection-end-line="89" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Dashboard/Dashboard.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Dashboard/StatsisticCard.js" />
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Dashboard/Container/Container.js" />
     <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Dashboard/DashboardHome/DashboardHome.js" />
     <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Dashboard/DashboardStore/DashBoardStore.js" />
     <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/MasterFloatButton/MasterFloatButton.js" />
@@ -912,13 +865,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="156" column="85" lean-forward="true" selection-start-line="156" selection-start-column="85" selection-end-line="156" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/UserWidget/UserWidget.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1024,9 +970,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1041,9 +984,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
           <caret line="25" column="12" lean-forward="true" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1058,9 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1424">
           <caret line="88" column="10" lean-forward="true" selection-start-line="88" selection-start-column="10" selection-end-line="88" selection-end-column="10" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1068,19 +1005,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="842">
           <caret line="120" column="80" lean-forward="true" selection-start-line="120" selection-start-column="80" selection-end-line="120" selection-end-column="80" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/List/List.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1949">
-          <caret line="96" column="64" lean-forward="true" selection-start-line="96" selection-start-column="64" selection-end-line="96" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1091,16 +1015,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/SideDrawer.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="25" column="29" lean-forward="true" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/MainHeader/SideDrawer.js" />
     <entry file="file://$PROJECT_DIR$/client/src/Store/router/routerActions.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -1112,13 +1027,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="129" column="14" lean-forward="true" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1140,9 +1048,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="754">
           <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1150,9 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-29">
           <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1160,9 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="66" column="27" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1170,9 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="783">
           <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1186,12 +1082,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/List/List.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1949">
+          <caret line="96" column="64" lean-forward="true" selection-start-line="96" selection-start-column="64" selection-end-line="96" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/assets/idnex.js" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/tools/index.js" />
+    <entry file="file://$PROJECT_DIR$/client/src/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Drawer/Drawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
+        <state relative-caret-position="594">
           <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
           <folding>
             <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1203,23 +1128,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/DrawerButton/DrawerButton.js">
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+        <state relative-caret-position="1674">
+          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
           <folding>
-            <element signature="e#0#47#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/ItemDetails/ItemDetails.js">
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/Layout/Navigation/ProductAvatar.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="304" column="45" selection-start-line="304" selection-start-column="42" selection-end-line="338" selection-end-column="57" />
-          <folding>
-            <element signature="e#9460#10086#0" />
-          </folding>
+        <state relative-caret-position="756">
+          <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Menu/Menu.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/Componenents/UI/Menu/EnhancedMenu.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2727">
+          <caret line="118" column="73" selection-start-line="118" selection-start-column="73" selection-end-line="118" selection-end-column="73" />
         </state>
       </provider>
     </entry>

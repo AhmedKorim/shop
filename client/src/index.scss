@@ -1,8 +1,10 @@
 @import "~react-id-swiper/src/styles/css/swiper.css";
-@import "~bootstrap/dist/css/bootstrap-grid.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~react-perfect-scrollbar/dist/css/styles.min.css";
 @import "~react-scrollbar/dist/css/scrollArea.css";
-
+*:focus{
+  outline: none !important;
+}
 body, html {
   margin: 0;
   padding: 0;
