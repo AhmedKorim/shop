@@ -2,9 +2,11 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import "~react-perfect-scrollbar/dist/css/styles.min.css";
 @import "~react-scrollbar/dist/css/scrollArea.css";
-*:focus{
+
+*:focus {
   outline: none !important;
 }
+
 body, html {
   margin: 0;
   padding: 0;
@@ -135,4 +137,15 @@ body, html {
 // drawer model  paper
 .MainDrawerPaper {
   width: 240px;
+}
+
+///
+.swiper-container {
+  overflow: visible !important;
+}
+
+.max__with-250{
+  max-width: 300px;
+  margin: auto;
+  position: relative;
 }

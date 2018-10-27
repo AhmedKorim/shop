@@ -24,6 +24,15 @@ const UserSchema = new Schema({
 
          }
     ],
+    comparedList: [
+         {
+             product: {
+                 type: Schema.Types.ObjectId,
+                 ref: 'Product'
+             }
+
+         }
+    ],
     cart: [
         {
             product: {

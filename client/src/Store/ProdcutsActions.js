@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {addAsyncButton, GET_ALL_PRODUCTS, remvoeAsyncButton, SET_ACTIVE_PRODUCT, SET_CART, TOGGLE_WISHLIST} from "./ActionsTypes";
+import {addAsyncButton, GET_ALL_PRODUCTS, remvoeAsyncButton, SET_ACTIVE_PRODUCT, SET_CART, TOGGLE_COMPARED_LIST, TOGGLE_WISHLIST} from "./ActionsTypes";
 
 
 // action createtos
@@ -16,6 +16,12 @@ const setWishlist = wishlist => ({
         wishlist
     }
 })
+const comparedList = comparedList => ({
+    type: TOGGLE_COMPARED_LIST,
+    payload: {
+        comparedList
+    }
+})
 
 export const getUerData = dispatch => {
     console.log('getting metadat');
@@ -23,6 +29,7 @@ export const getUerData = dispatch => {
         .then(({data}) => {
             dispatch(setCart(data.cart));
             dispatch(setWishlist(data.wishlist))
+            dispatch(comparedList(data.comparedList))
         }).catch(err => console.log(err))
 }
 
@@ -118,8 +125,18 @@ export const toggleWishlist = productId => dispatch => {
     axios.post('/api/order/wishlist', {id: productId})
         .then(({data}) => {
             dispatch(remvoeAsyncButton(productId + "wishlist"));
-            console.log(data);
             dispatch(setWishlist(data.wishlist));
+        })
+        .catch(err => console.log(err))
+}
+
+
+export const toggleComparedList = productId => dispatch => {
+    dispatch(addAsyncButton(productId + "compared"));
+    axios.post('/api/order/compared', {id: productId})
+        .then(({data}) => {
+            dispatch(remvoeAsyncButton(productId + "compared"));
+            dispatch(comparedList(data.comparedList));
         })
         .catch(err => console.log(err))
 }

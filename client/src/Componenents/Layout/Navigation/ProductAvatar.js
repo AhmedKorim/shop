@@ -5,10 +5,11 @@ import styled from "styled-components";
 
 const ItemAvatar = styled.div`
   position: absolute;
- height: 4rem;
- width: 4rem;
+ height: 6rem;
+ width: 6rem;
  border-radius: 50%;
- top: -2rem;
+ left: 3rem;
+ top: -3rem;
  display:flex;
  justify-content: center;
  align-items: center;
@@ -25,19 +26,10 @@ const ItemAvatar = styled.div`
   }
 `
 
-
-
-/*
-*
-*
-*
-*
-* */
-
 const ProductAvatar = ({text}) => {
     return (
         <ItemAvatar>
-            <Avatar className="Avatar">{text.trim().slice(0, 2)}</Avatar>
+            <Avatar className="Avatar">{text.trim()}</Avatar>
         </ItemAvatar>
     )
 }

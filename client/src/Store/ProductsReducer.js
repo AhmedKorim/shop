@@ -1,9 +1,10 @@
-import {GET_ALL_PRODUCTS, SET_ACTIVE_PRODUCT, SET_CART, TOGGLE_WISHLIST} from "./ActionsTypes";
+import {GET_ALL_PRODUCTS, SET_ACTIVE_PRODUCT, SET_CART, TOGGLE_COMPARED_LIST, TOGGLE_WISHLIST} from "./ActionsTypes";
 
 const initialState = {
     products: [],
     activeProduct: null,
     wishlist: [],
+    comparedList: [],
     cart: []
 };
 
@@ -28,6 +29,11 @@ const productsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 wishlist: action.payload.wishlist
+            }
+        case TOGGLE_COMPARED_LIST:
+            return {
+                ...state,
+                comparedList: action.payload.comparedList
             }
         default :
             return state

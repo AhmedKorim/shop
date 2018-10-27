@@ -188,6 +188,45 @@ router.post('/wishlist', passport.authenticate('jwt', {session: false}), (req, r
         .catch(err => console.log(err))
 })
 
+
+/*
+* @route /api/order/comparedList
+* @method post
+* @desc add the product from the comparedList
+* @privacy
+*@params
+* */
+router.post('/compared', passport.authenticate('jwt', {session: false}), (req, res) => {
+    const {_id} = req.user;
+    const {id: productId} = req.body;
+    if (!_id) {
+        // return res.status(401).json({})
+    }
+    User.findById(_id)
+        .then(user => {
+            if (user) {
+                const oncComparedList = !!user.comparedList.find(comparedListItem => comparedListItem.product.toString() === productId)
+                if (oncComparedList) {
+                    user.comparedList = user.comparedList.filter(wishListIem => wishListIem.product.toString() !== productId)
+                } else {
+                    user.comparedList.unshift({
+                        product: productId
+                    })
+                }
+                user.save()
+                    .then(user => {
+                        console.log(user.comparedList); // ?
+                        res.status(201)
+                            .json({
+                                message: oncComparedList ? "item delete from wishlsit" : "item added to comparedList",
+                                comparedList: user.comparedList
+                            })
+                    })
+            }
+        })
+        .catch(err => console.log(err))
+})
+
 /*
 * @route /api/order/session
 * @method post
@@ -195,12 +234,14 @@ router.post('/wishlist', passport.authenticate('jwt', {session: false}), (req, r
 * @privacy
 *@params
 * */
+
 router.get('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     const {_id} = req.user;
     User.findById(_id)
         .then(user => res.status(200).json({
             cart: user.cart,
-            wishlist: user.wishlist
+            wishlist: user.wishlist,
+            comparedList: user.comparedList
         }))
         .catch(err => {
             res.status(500)

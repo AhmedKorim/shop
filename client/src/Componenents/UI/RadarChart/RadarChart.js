@@ -9,42 +9,46 @@ class RadarChart extends React.Component {
             statistics
         } = this.props;
         const data = statistics || {};
+        console.log(statistics);
         return (
-            <Radar data={{
-                labels: ["Weight",
-                    "Strength",
-                    "Adaptability",
-                    "Maximum Speed",
-                    "Stiffness",
-                    "Safety"],
-                datasets: [
-                    {
-                        label: "Average",
-                        data: [51, 35, 55, 12, 50, 15],
-                        backgroundColor: "rgba(66, 165, 245,.4)",
-                        borderColor: "rgba(240, 98, 146.5)"
-                    }, {
-                        label: current,
-                        data: [data.weight,
-                            data.strength,
-                            data.adaptability,
-                            data.maximumSpeed,
-                            data.stiffness,
-                            data.safety],
-                        backgroundColor: ["rgba(165, 214, 167,.6)",
-                            "rgb(0, 200, 83)",],
-                        borderColor: "rgba(0, 200, 83,.7)"
-                    }
+            <Radar
+                width={100}
+                height={100}
+                data={{
+                    labels: ["Weight",
+                        "Strength",
+                        "Adaptability",
+                        "Maximum Speed",
+                        "Stiffness",
+                        "Safety"],
+                    datasets: [
+                        {
+                            label: "Average",
+                            data: [51, 35, 55, 12, 50, 15],
+                            backgroundColor: "rgba(66, 165, 245,.4)",
+                            borderColor: "rgba(240, 98, 146.5)"
+                        }, {
+                            label: current,
+                            data: [data.weight,
+                                data.strength,
+                                data.adaptability,
+                                data.maximumSpeed,
+                                data.stiffness,
+                                data.safety],
+                            backgroundColor: ["rgba(165, 214, 167,.6)",
+                                "rgb(0, 200, 83)",],
+                            borderColor: "rgba(0, 200, 83,.7)"
+                        }
 
-                ],
-                options: {
-                    title: {
-                        display: false
-                    }
-                },
-                borderWidth: 1
-            }}
-                   legend={{display: false}}
+                    ],
+                    options: {
+                        title: {
+                            display: false
+                        }
+                    },
+                    borderWidth: 1
+                }}
+                legend={{display: false}}
             />
         )
     }

@@ -8,7 +8,7 @@ import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
 import styled from 'styled-components';
 import {getSpringCoordinates} from "../../../Store/ActionsTypes";
-import {addProductToCart, toggleWishlist} from "../../../Store/ProdcutsActions";
+import {addProductToCart, toggleComparedList, toggleWishlist} from "../../../Store/ProdcutsActions";
 import AsyncIconButton from "../AsyncIconButton/AsyncIconButton";
 
 const Wrapper = styled(ButtonBase)`
@@ -87,11 +87,13 @@ class CartItem extends Component {
                         image,
                     },
                     inCart,
-                    inWishlist
+                    inWishlist,
+                    inComparedList
                 },
                 addProductToCart,
                 toggleWishlist,
-                asyncButtons
+                asyncButtons,
+                toggleComparedList
             },
             showProductDetails,
         } = this;
@@ -99,6 +101,7 @@ class CartItem extends Component {
         const loadingButtons = asyncButtons.filter(buttons => buttons.indexOf(_id) > -1);
         const addingToWishList = loadingButtons.find(e => e.indexOf('wishlist') > -1);
         const addingToCart = loadingButtons.find(e => e.indexOf('cart') > -1);
+        const addingToComparedList = loadingButtons.find(e => e.indexOf('compared') > -1);
         return (
             <div ref={node => this.wrapper = node}>
                 <Wrapper component="div" onClick={(e) => showProductDetails(e, _id)}
@@ -127,6 +130,13 @@ class CartItem extends Component {
                                         loading={addingToCart}
                                     />
                                     <AsyncIconButton
+                                        clickHandler={() => toggleComparedList(_id)}
+                                        mainIcon="compare"
+                                        success={inComparedList}
+                                        successIcon="compare"
+                                        loading={addingToComparedList}
+                                    />
+                                    <AsyncIconButton
                                         variant="fab"
                                         clickHandler={() => toggleWishlist(_id)}
                                         mainIcon="favorite"
@@ -150,7 +160,8 @@ const mapDispatchToPros = dispatch => {
     return {
         updatedSpringCoordinates: (coordinates) => dispatch(getSpringCoordinates(coordinates)),
         addProductToCart: (productId, count) => dispatch(addProductToCart(productId, count)),
-        toggleWishlist: (productId) => dispatch(toggleWishlist(productId))
+        toggleWishlist: (productId) => dispatch(toggleWishlist(productId)),
+        toggleComparedList: (productId) => dispatch(toggleComparedList(productId))
     }
 }
 const mapStateToProps = state => ({

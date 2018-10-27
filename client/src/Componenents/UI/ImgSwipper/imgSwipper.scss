@@ -33,9 +33,8 @@
     align-items: center;
   }
   .imgWrapper {
-    height: 0;
-    width: 75%;
-    padding-top: 50%;
+    height: 100%;
+    width: 100%;
     position: relative;
   }
   .swiper-pagination-bullets {
@@ -60,7 +59,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-size: contain;
     background: no-repeat center center;
+    background-size: contain !important;
   }
 }

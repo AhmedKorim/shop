@@ -55,7 +55,6 @@ z-index: 44;
 `;
 const SliderShow = styled.div`
   height:40vh;
-  padding: 2rem 0;  
 `;
 const FapWrapper = styled.div`
 position: fixed;
@@ -80,7 +79,6 @@ display: flex;
 justify-content: center;
 width: 100%;
 div{
-margin-left: auto;
 }
 `
 const Row = styled.div`
@@ -224,6 +222,7 @@ class ItemDetails extends React.Component {
                     name,
                     image,
                     brand,
+                    price,
                     description
                 },
                 statistics,
@@ -267,61 +266,71 @@ class ItemDetails extends React.Component {
                                     <div>
                                         <Zoom in={this.state.showContent} UnmountOnExit MountOnEnter timeout={300} mountOnEnter
                                               style={{transitionDelay: this.state.showContent ? 200 : 100}}>
-                                            <ProductAvatar text={brand}/>
+                                            <ProductAvatar text={price + '$'}/>
                                         </Zoom>
+                                    </div>
+                                    <div className="p-4">
+                                        <div className="row">
+                                            <div className="col-12 text-center mb-2">
+                                                <div className="m-auto">
+                                                    <Typography variant="display1" component="h3" className="disription_header mb-0">
+                                                        {name}
+                                                    </Typography>
+                                                    <div className="d-flex justify-content-center align-items-center">
+                                                        <div>
+                                                            <Typography variant="subheading" component="h4" className="disription_header brand_name mb-0">
+                                                                {brand}
+                                                            </Typography>
+                                                        </div>
+                                                        <div className="px-2">
+                                                            <RateWrapper>
+                                                                <div>
+                                                                    <Rating rate={80}/>
+                                                                </div>
+                                                            </RateWrapper>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div className="col-8">
+                                                <Typography variant="headline" component="h4" className="disription_header">
+                                                    Discription
+                                                </Typography>
+                                                <Typography>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                    harum,
+                                                    molestiae
+                                                    nisi
+                                                    qui
+                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                </Typography>
+                                                <br/>
+                                                <Typography>
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
+                                                    harum,
+                                                    molestiae
+                                                    nisi
+                                                    quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta
+                                                    excepturi
+                                                    harum,
+                                                    molestiae
+                                                    nisi
+                                                    qui
+                                                    quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
+                                                </Typography>
+                                            </div>
+                                            <div className="col">
+                                                <Datavisulization>
+                                                    <RadarChart current={name} statistics={statistics}/>
+                                                </Datavisulization>
+                                            </div>
+                                        </div>
                                     </div>
                                     <Fragment>
                                         {/*<Collapse timeout={100} in={this.state.showContent} mountOnEnter>*/}
                                         <div>
-                                            <RateWrapper>
-                                                <div>
-                                                    <Rating rate={80}/>
-                                                </div>
-                                            </RateWrapper>
                                         </div>
                                         <div>
-                                            <Row>
-                                                {/*      <div className="col-7">
-                                                    <div style={{textAlign: 'center'}}>
-                                                        <Typography variant="headline" component="h3" className="disription_header">
-                                                            {name} <br/>
-                                                        </Typography>
-                                                        <Typography variant="body1" component="span" className="disription_header">
-                                                            {brand}
-                                                        </Typography>
-                                                    </div>
-                                                    <Typography variant="subheading" component="h4" className="disription_header">
-                                                        Discription
-                                                    </Typography>
-                                                    <Typography>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                        harum,
-                                                        molestiae
-                                                        nisi
-                                                        qui
-                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                    </Typography>
-                                                    <br/>
-                                                    <Typography>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta excepturi
-                                                        harum,
-                                                        molestiae
-                                                        nisi
-                                                        quiLorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci autem deleniti dicta
-                                                        excepturi
-                                                        harum,
-                                                        molestiae
-                                                        nisi
-                                                        qui
-                                                        quis quod. Accusantium nam nesciunt numquam quisquam saepe! At, doloremque, porro. Laudantium!
-                                                    </Typography>
-                                                </div>*/}
-                                                <div className="col">
-                                                    <Datavisulization>
-                                                        <RadarChart current={name} statistics={statistics}/>
-                                                    </Datavisulization>
-                                                </div>
-                                            </Row>
                                         </div>
                                         {/*</Collapse>*/}
                                         <div className="container">

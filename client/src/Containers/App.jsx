@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import styled from "styled-components";
+import Compared from "../Componenents/Layout/Comared/Compared";
 import ItemDetails from "../Componenents/Layout/ItemDetails/ItemDetails";
 import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
 import SideDrawer from "../Componenents/UI/Drawer/Drawer";
@@ -95,6 +96,10 @@ class App extends Component {
                         <Route
                             path="/Admin_area"
                             component={AdminDashboard}
+                        />
+                        <Route
+                            path="/compared"
+                            component={Compared}
                         />
                         <Route
                             path="/auth/:form"

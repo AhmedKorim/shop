@@ -22,16 +22,19 @@ class ProductsWrapper extends React.Component {
         const {
             products,
             cart,
-            wishlist
+            wishlist,
+            comparedList
 
         } = this.props;
         const mergedProdcts = products.map(product => {
             const inWishlist = !!wishlist.find(item => item.product === product._id);
             const inCart = !!cart.find(item => item.product === product._id);
+            const inComparedList = !!comparedList.find(comparedListItem => comparedListItem.product === product._id);
             return {
                 ...product,
                 inCart,
-                inWishlist
+                inWishlist,
+                inComparedList
             }
         })
         return (
@@ -48,6 +51,7 @@ class ProductsWrapper extends React.Component {
 const mapStateToProps = state => ({
     products: state.products.products,
     wishlist: state.products.wishlist,
+    comparedList: state.products.comparedList,
     cart: state.products.cart,
 })
 export default connect(mapStateToProps)(ProductsWrapper);

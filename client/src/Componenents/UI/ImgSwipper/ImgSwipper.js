@@ -120,6 +120,7 @@ class ImgSwipper extends Component {
                                 onClick={() => mainSwiperNav('next')}
                                 mini><Icon>chevron_right</Icon></Button></Tooltip>
                     <div className="swipperWrapper">
+
                         <Swiper {...parms} ref={(node) => node ? this.mainSwiper = node.swiper : void 0} className="swiperContainer">
                             {imagesArray.map(image => <div className="SlideItem" key={Object.keys(image)[0]}>
                                     <div className="imgWrapper">

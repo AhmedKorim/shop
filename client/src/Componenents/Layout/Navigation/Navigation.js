@@ -15,8 +15,8 @@ const Navigation = ({dir, dark,pathname}) => {
                     target: '/products'
                 },
                 {
-                    label: 'admin area',
-                    target: '/admin_area'
+                    label: 'compared',
+                    target: '/compared'
                 },
                 {
                     label: 'wish list',
