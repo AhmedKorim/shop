@@ -6,6 +6,7 @@ import {connect} from "react-redux";
 import {Redirect, Route, Switch, withRouter} from "react-router-dom";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
 import styled from "styled-components";
+import Checkout from "../Componenents/Layout/Checkout/Checkout";
 import Compared from "../Componenents/Layout/Comared/Compared";
 import ItemDetails from "../Componenents/Layout/ItemDetails/ItemDetails";
 import MainHeader from "../Componenents/Layout/MainHeader/MainHeader";
@@ -98,9 +99,12 @@ class App extends Component {
                             component={AdminDashboard}
                         />
                         <Route
-                            path="/compared"
+                            path="/wish_list"
                             component={Compared}
-                        />
+                        /> <Route
+                        path="/checkout"
+                        component={Checkout}
+                    />
                         <Route
                             path="/auth/:form"
                             component={Auth}

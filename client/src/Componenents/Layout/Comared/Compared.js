@@ -39,6 +39,11 @@ z-index: 555;
 font-weight: bold;
 `;
 
+const Wrapper =styled.div`
+overflow:hidden;
+
+`
+
 class Compared extends React.Component {
 
     state = {
@@ -77,7 +82,7 @@ class Compared extends React.Component {
 
 
         return (
-            <div>
+            <Wrapper>
                 {swiperReadyData &&
                 <Fragment>
                     <CoverFlowSwiper
@@ -125,7 +130,7 @@ class Compared extends React.Component {
                     }
                 </Fragment>
                 }
-            </div>
+            </Wrapper>
         )
     }
 }

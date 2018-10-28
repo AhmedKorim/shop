@@ -131,19 +131,12 @@ class CartItem extends Component {
                                     />
                                     <AsyncIconButton
                                         clickHandler={() => toggleComparedList(_id)}
-                                        mainIcon="compare"
-                                        success={inComparedList}
-                                        successIcon="compare"
-                                        loading={addingToComparedList}
-                                    />
-                                    <AsyncIconButton
-                                        variant="fab"
-                                        clickHandler={() => toggleWishlist(_id)}
                                         mainIcon="favorite"
-                                        success={inWishlist}
+                                        success={inComparedList}
                                         successIcon="favorite"
-                                        loading={addingToWishList}
+                                        loading={addingToComparedList}
                                         successVariant={true}
+
                                     />
                                 </Grid>
                             </Grid>

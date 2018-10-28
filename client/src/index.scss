@@ -144,8 +144,15 @@ body, html {
   overflow: visible !important;
 }
 
-.max__with-250{
+.max__with-250 {
   max-width: 300px;
   margin: auto;
   position: relative;
+}
+
+.Checkout-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-top: 1rem;
 }

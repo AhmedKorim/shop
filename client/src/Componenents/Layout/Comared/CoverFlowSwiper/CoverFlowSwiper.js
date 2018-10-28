@@ -34,7 +34,7 @@ const params = {
     centeredSlides: true,
     slidesPerView: 5,
     freeMode: false,
-    loop: true,
+    // loop: true,
     slideActiveClass: 'myActiveSlide',
     freeModeSticky: true,
     // loop: true,
